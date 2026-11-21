@@ -1,8 +1,6 @@
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark) and (max-width: 600px)" srcset="assets/hero-dark-mobile.svg" />
     <source media="(prefers-color-scheme: dark)" srcset="assets/hero-dark.svg" />
-    <source media="(prefers-color-scheme: light) and (max-width: 600px)" srcset="assets/hero-light-mobile.svg" />
     <source media="(prefers-color-scheme: light)" srcset="assets/hero-light.svg" />
     <img src="assets/hero-dark.svg" width="100%" alt="Pushpika Odisha — Systems & Full-Stack Software Engineer" />
   </picture>
@@ -17,7 +15,7 @@
 </p>
 
 <p align="center">
-  <a href="mailto:pushpikaodisha.dev@gmail.com"><strong>Get in touch ↗</strong></a>
+  <a href="mailto:pushpikaodisha.contact@gmail.com"><strong>Get in touch ↗</strong></a>
   &nbsp; · &nbsp;
   <a href="https://github.com/pushpikaodisha?tab=repositories"><strong>Explore repositories ↗</strong></a>
   &nbsp; · &nbsp;
@@ -54,9 +52,7 @@ I'm **Pushpika Odisha**, a developer from **Sri Lanka** who builds **self-contai
 
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark) and (max-width: 600px)" srcset="assets/arch-dark-mobile.svg" />
     <source media="(prefers-color-scheme: dark)" srcset="assets/arch-dark.svg" />
-    <source media="(prefers-color-scheme: light) and (max-width: 600px)" srcset="assets/arch-light-mobile.svg" />
     <source media="(prefers-color-scheme: light)" srcset="assets/arch-light.svg" />
     <img src="assets/arch-dark.svg" width="100%" alt="Engineering Architecture Pipeline" />
   </picture>
@@ -149,9 +145,7 @@ I'm **Pushpika Odisha**, a developer from **Sri Lanka** who builds **self-contai
 
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark) and (max-width: 600px)" srcset="assets/stats-dark-mobile.svg" />
     <source media="(prefers-color-scheme: dark)" srcset="assets/stats-dark.svg" />
-    <source media="(prefers-color-scheme: light) and (max-width: 600px)" srcset="assets/stats-light-mobile.svg" />
     <source media="(prefers-color-scheme: light)" srcset="assets/stats-light.svg" />
     <img src="assets/stats-dark.svg" width="100%" alt="GitHub Metrics for pushpikaodisha" />
   </picture>
@@ -163,11 +157,11 @@ I'm **Pushpika Odisha**, a developer from **Sri Lanka** who builds **self-contai
 
 | Channel | Handle / Link |
 | :--- | :--- |
-| **Email** | [pushpikaodisha.dev@gmail.com](mailto:pushpikaodisha.dev@gmail.com) |
+| **Email** | [pushpikaodisha.contact@gmail.com](mailto:pushpikaodisha.contact@gmail.com) |
 | **GitHub** | [@pushpikaodisha](https://github.com/pushpikaodisha) |
 
 <p align="center">
-  <a href="mailto:pushpikaodisha.dev@gmail.com">
+  <a href="mailto:pushpikaodisha.contact@gmail.com">
     <picture>
       <source media="(prefers-color-scheme: dark)" srcset="assets/footer-dark.svg" />
       <source media="(prefers-color-scheme: light)" srcset="assets/footer-light.svg" />

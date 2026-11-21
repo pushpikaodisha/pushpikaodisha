@@ -255,7 +255,7 @@ def ide_scene(t: dict, tx: int, ty: int, scale: float = 1.0) -> str:
 
 def render_hero(t: dict, mobile: bool = False) -> str:
     """Render desktop or mobile animated hero SVG."""
-    w, h = (540, 560) if mobile else (960, 360)
+    w, h = (540, 560) if mobile else (960, 330)
     c_bg1 = t["bg_start"]
     c_bg2 = t["bg_end"]
     c_border = t["border"]
@@ -336,19 +336,19 @@ def render_hero(t: dict, mobile: bool = False) -> str:
   <text x="50" y="538" font-family="{MONO_FONT}" font-size="10" letter-spacing="0.8" fill="{c_muted}">OPEN TO ENGINEERING ROLES</text>
   <text x="508" y="538" text-anchor="end" font-family="{MONO_FONT}" font-size="10" fill="{c_muted}">SRI LANKA · @{html.escape(USERNAME.upper())}</text>"""
     else:
-        body = f"""  <circle cx="710" cy="175" r="280" fill="url(#glow)"/>
-  <rect x="48" y="48" width="28" height="3.5" rx="1.75" fill="url(#accent)"/>
-  <text x="86" y="53" font-family="{MONO_FONT}" font-size="11.5" letter-spacing="1.4" fill="{c_muted}">SYSTEMS &amp; FULL-STACK ENGINEER</text>
-  <text x="48" y="114" font-family="{SANS_FONT}" font-size="48" font-weight="800" letter-spacing="-1.2" fill="{c_text}">Pushpika</text>
-  <text x="48" y="164" font-family="{SANS_FONT}" font-size="48" font-weight="800" letter-spacing="-1.2" fill="url(#accent)">Odisha</text>
-  <text x="48" y="206" font-family="{SANS_FONT}" font-size="17" font-weight="500" fill="{c_subtext}">Zero-dependency engines.</text>
-  <text x="48" y="231" font-family="{SANS_FONT}" font-size="17" font-weight="500" fill="{c_subtext}">Resilient full-stack systems.</text>
-  <text x="48" y="268" font-family="{MONO_FONT}" font-size="11" letter-spacing="1.2" fill="{c_muted}">NODE.JS  /  PHP 8  /  CRYPTOGRAPHY  /  CANVAS</text>
-  <line x1="48" y1="304" x2="912" y2="304" stroke="{c_border}" stroke-width="1"/>
-  <circle cx="54" cy="330" r="3.8" fill="{c_accent_3}" class="status"/>
-  <text x="67" y="334" font-family="{MONO_FONT}" font-size="10.5" letter-spacing="0.9" fill="{c_muted}">OPEN TO SOFTWARE ENGINEERING OPPORTUNITIES</text>
-  <text x="912" y="334" text-anchor="end" font-family="{MONO_FONT}" font-size="10.5" letter-spacing="0.9" fill="{c_muted}">SRI LANKA · @{html.escape(USERNAME.upper())}</text>
-{ide_scene(t, 526, 36, 0.94)}"""
+        body = f"""  <circle cx="710" cy="160" r="270" fill="url(#glow)"/>
+  <rect x="48" y="42" width="28" height="3.5" rx="1.75" fill="url(#accent)"/>
+  <text x="86" y="47" font-family="{MONO_FONT}" font-size="11.5" letter-spacing="1.4" fill="{c_muted}">SYSTEMS &amp; FULL-STACK ENGINEER</text>
+  <text x="48" y="102" font-family="{SANS_FONT}" font-size="44" font-weight="800" letter-spacing="-1.2" fill="{c_text}">Pushpika</text>
+  <text x="48" y="148" font-family="{SANS_FONT}" font-size="44" font-weight="800" letter-spacing="-1.2" fill="url(#accent)">Odisha</text>
+  <text x="48" y="186" font-family="{SANS_FONT}" font-size="16" font-weight="500" fill="{c_subtext}">Zero-dependency engines.</text>
+  <text x="48" y="210" font-family="{SANS_FONT}" font-size="16" font-weight="500" fill="{c_subtext}">Resilient full-stack systems.</text>
+  <text x="48" y="246" font-family="{MONO_FONT}" font-size="11" letter-spacing="1.2" fill="{c_muted}">NODE.JS  /  PHP 8  /  CRYPTOGRAPHY  /  CANVAS</text>
+  <line x1="48" y1="278" x2="912" y2="278" stroke="{c_border}" stroke-width="1"/>
+  <circle cx="54" cy="303" r="3.8" fill="{c_accent_3}" class="status"/>
+  <text x="67" y="307" font-family="{MONO_FONT}" font-size="10.5" letter-spacing="0.9" fill="{c_muted}">OPEN TO SOFTWARE ENGINEERING OPPORTUNITIES</text>
+  <text x="912" y="307" text-anchor="end" font-family="{MONO_FONT}" font-size="10.5" letter-spacing="0.9" fill="{c_muted}">SRI LANKA · @{html.escape(USERNAME.upper())}</text>
+{ide_scene(t, 536, 26, 0.88)}"""
 
     return f"""<svg xmlns="http://www.w3.org/2000/svg" width="{w}" height="{h}" viewBox="0 0 {w} {h}" role="img" aria-label="Pushpika Odisha — Systems and Full-Stack Software Engineer">
 {shared_defs}
@@ -571,7 +571,7 @@ def render_footer(t: dict) -> str:
   <rect width="{w}" height="{h}" rx="16" fill="url(#footerBg)" stroke="{c_border}" stroke-width="1.5"/>
   <rect x="36" y="31" width="4" height="46" rx="2" fill="url(#footerAccent)"/>
   <text x="56" y="49" font-family="{SANS_FONT}" font-size="16.5" font-weight="700" fill="{c_text}">Let's build dependable software and high-impact engineering systems.</text>
-  <text x="56" y="73" font-family="{MONO_FONT}" font-size="12" fill="{c_muted}">pushpikaodisha.dev@gmail.com  ·  github.com/{esc_user}  ·  Sri Lanka</text>
+  <text x="56" y="73" font-family="{MONO_FONT}" font-size="12" fill="{c_muted}">pushpikaodisha.contact@gmail.com  ·  github.com/{esc_user}  ·  Sri Lanka</text>
 </svg>
 """
 
