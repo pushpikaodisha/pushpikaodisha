@@ -4,25 +4,34 @@
     <source media="(prefers-color-scheme: dark)" srcset="assets/hero-dark.svg" />
     <source media="(prefers-color-scheme: light) and (max-width: 600px)" srcset="assets/hero-light-mobile.svg" />
     <source media="(prefers-color-scheme: light)" srcset="assets/hero-light.svg" />
-    <img src="assets/hero-dark.svg" width="100%" alt="Pushpika Odisha — Full-Stack & Systems Software Engineer" />
+    <img src="assets/hero-dark.svg" width="100%" alt="Pushpika Odisha — Systems & Full-Stack Software Engineer" />
   </picture>
 </p>
 
+<h1 align="center">Hi, I'm Pushpika 👋</h1>
+
 <p align="center">
-  <a href="mailto:pushpikaodisha.dev@gmail.com"><strong>Email ↗</strong></a>
+  <strong>Full-Stack &amp; Systems Software Engineer · Sri Lanka</strong><br />
+  Designing zero-dependency Node.js engines, strict OOP/MVC PHP platforms,<br />
+  cryptographic tooling, and real-time interactive web simulations.
+</p>
+
+<p align="center">
+  <a href="mailto:pushpikaodisha.dev@gmail.com"><strong>Get in touch ↗</strong></a>
   &nbsp; · &nbsp;
-  <a href="https://github.com/pushpikaodisha?tab=repositories"><strong>Repositories ↗</strong></a>
+  <a href="https://github.com/pushpikaodisha?tab=repositories"><strong>Explore repositories ↗</strong></a>
   &nbsp; · &nbsp;
-  <a href="https://github.com/pushpikaodisha?tab=stars"><strong>Starred ↗</strong></a>
+  <a href="https://github.com/pushpikaodisha?tab=stars"><strong>Starred projects ↗</strong></a>
 </p>
 
 <p align="center">
   <sub>
     <a href="#about">About</a> &nbsp;/&nbsp;
-    <a href="#selected-systems">Selected Systems</a> &nbsp;/&nbsp;
+    <a href="#architecture">Architecture</a> &nbsp;/&nbsp;
+    <a href="#selected-systems">Projects</a> &nbsp;/&nbsp;
     <a href="#engineering-stack">Stack</a> &nbsp;/&nbsp;
     <a href="#github-metrics">Metrics</a> &nbsp;/&nbsp;
-    <a href="#connect">Connect</a>
+    <a href="#connect">Contact</a>
   </sub>
 </p>
 
@@ -30,14 +39,28 @@
 
 ## About
 
-I'm **Pushpika Odisha**, a software engineer based in **Sri Lanka** focused on building **self-contained, low-overhead software systems** — spanning zero-dependency Node.js engines, strict OOP/MVC PHP 8 platforms, cryptographic verification tools, and real-time browser simulations.
+I'm **Pushpika Odisha**, a developer from **Sri Lanka** who builds **self-contained, deterministic software** without bloated dependency trees. My work spans from low-overhead backend engines and telemetry orchestrators to 4D hyper-geometry and acoustic synthesis in the browser.
 
 | At a glance | Focus |
 | :--- | :--- |
-| **Engineering Focus** | Backend architecture, API reliability, and deterministic data workflows |
-| **Systems Philosophy** | Minimal external dependencies, clean modular boundaries, and clear observability |
-| **Interactive Labs** | Canvas 2D/3D rendering, Web Audio synthesis, and physics/neural simulations |
-| **Location** | Sri Lanka |
+| **Engineering Focus** | Backend architecture, API resilience, and zero-dependency tooling |
+| **Core Strengths** | Node.js ESM engines, PHP 8.3 OOP/MVC systems, SQLite FTS5/PDO, SSE streaming |
+| **Security & Integrity** | RFC 6962 Merkle Tree proofs, granular RBAC, deterministic state machines |
+| **Based in** | Sri Lanka |
+
+---
+
+## Architecture
+
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark) and (max-width: 600px)" srcset="assets/arch-dark-mobile.svg" />
+    <source media="(prefers-color-scheme: dark)" srcset="assets/arch-dark.svg" />
+    <source media="(prefers-color-scheme: light) and (max-width: 600px)" srcset="assets/arch-light-mobile.svg" />
+    <source media="(prefers-color-scheme: light)" srcset="assets/arch-light.svg" />
+    <img src="assets/arch-dark.svg" width="100%" alt="Engineering Architecture Pipeline" />
+  </picture>
+</p>
 
 ---
 
@@ -48,12 +71,12 @@ I'm **Pushpika Odisha**, a software engineer based in **Sri Lanka** focused on b
     <td width="50%" valign="top">
       <h4>01 · <a href="https://github.com/pushpikaodisha/neuroscribe-vault">NeuroScribe Studio</a></h4>
       <p>Knowledge graph vault and semantic Markdown research workspace featuring full-text search indexing and force-directed graph visualization.</p>
-      <p><code>Node.js 22</code> <code>SQLite FTS5</code> <code>Graph Physics</code></p>
+      <p><code>Node.js 22</code> <code>SQLite FTS5</code> <code>Force-Directed Graph</code></p>
     </td>
     <td width="50%" valign="top">
       <h4>02 · <a href="https://github.com/pushpikaodisha/polyglot-forge">PolyglotForge</a></h4>
       <p>Zero-dependency API contract simulator and chaos engineering workbench built on pure Node.js ESM for fault-injection and resilience testing.</p>
-      <p><code>Node.js ESM</code> <code>Chaos Testing</code> <code>Zero Dependencies</code></p>
+      <p><code>Node.js ESM</code> <code>Chaos Engineering</code> <code>Zero NPM</code></p>
     </td>
   </tr>
   <tr>
@@ -113,12 +136,12 @@ I'm **Pushpika Odisha**, a software engineer based in **Sri Lanka** focused on b
 
 ## Engineering Stack
 
-| Layer | Technologies & Patterns |
+| Layer | Technologies &amp; Patterns |
 | :--- | :--- |
-| **Backend & Runtimes** | Node.js (ESM), PHP 8.3 (OOP / MVC), REST APIs, Server-Sent Events (SSE) |
-| **Frontend & Graphics** | JavaScript (ES6+), HTML5 Canvas 2D/3D, Web Audio API, Responsive CSS |
-| **Data & Integrity** | SQLite (PDO / FTS5), Relational Modeling, Merkle Tree Verification |
-| **Engineering Practices** | Zero-Dependency Architecture, Chaos Testing, RBAC, State Machines, Git & GitHub Actions |
+| **Backend &amp; Runtimes** | Node.js (ESM), PHP 8.3 (OOP / MVC), REST APIs, Server-Sent Events (SSE) |
+| **Frontend &amp; Graphics** | JavaScript (ES6+), HTML5 Canvas 2D/3D, Web Audio API, Responsive CSS |
+| **Data &amp; Integrity** | SQLite (PDO / FTS5), Relational Modeling, Merkle Tree Verification |
+| **Practices &amp; Automation** | Zero-Dependency Design, Chaos Testing, RBAC, State Machines, GitHub Actions |
 
 ---
 
@@ -134,12 +157,6 @@ I'm **Pushpika Odisha**, a software engineer based in **Sri Lanka** focused on b
   </picture>
 </p>
 
-<details>
-  <summary><b>Architecture note:</b> How this profile works</summary>
-  <br />
-  All visual cards in <code>assets/</code> are generated via <a href="scripts/generate_profile_assets.py"><code>scripts/generate_profile_assets.py</code></a> and refreshed daily through <a href=".github/workflows/update-profile.yml">GitHub Actions</a>. Each card renders dedicated Dark/Light and Desktop/Mobile SVG variants using native <code>&lt;picture&gt;</code> media queries.
-</details>
-
 ---
 
 ## Connect
@@ -154,7 +171,7 @@ I'm **Pushpika Odisha**, a software engineer based in **Sri Lanka** focused on b
     <picture>
       <source media="(prefers-color-scheme: dark)" srcset="assets/footer-dark.svg" />
       <source media="(prefers-color-scheme: light)" srcset="assets/footer-light.svg" />
-      <img src="assets/footer-dark.svg" width="100%" alt="Open to engineering collaborations" />
+      <img src="assets/footer-dark.svg" width="100%" alt="Let's build dependable software" />
     </picture>
   </a>
 </p>

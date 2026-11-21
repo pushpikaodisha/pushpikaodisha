@@ -1,21 +1,149 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="540" height="236" viewBox="0 0 540 236" role="img" aria-label="Pushpika Odisha — Full-Stack &amp; Systems Software Engineer">
+<svg xmlns="http://www.w3.org/2000/svg" width="540" height="560" viewBox="0 0 540 560" role="img" aria-label="Pushpika Odisha — Systems and Full-Stack Software Engineer">
   <defs>
-    <linearGradient id="heroAccent" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#38BDF8"/>
+    <linearGradient id="background" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#07101D"/>
+      <stop offset="100%" stop-color="#0F1D32"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#34D399"/>
+      <stop offset="55%" stop-color="#38BDF8"/>
       <stop offset="100%" stop-color="#818CF8"/>
     </linearGradient>
-    <pattern id="dotGrid" width="24" height="24" patternUnits="userSpaceOnUse">
-      <circle cx="2" cy="2" r="1" fill="#21262D"/>
+    <linearGradient id="glass" x1="0%" y1="0%" x2="80%" y2="100%">
+      <stop offset="0%" stop-color="#1D334D"/>
+      <stop offset="100%" stop-color="#102033"/>
+    </linearGradient>
+    <radialGradient id="glow">
+      <stop offset="0%" stop-color="#0EA5E9" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#0EA5E9" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="dots" width="24" height="24" patternUnits="userSpaceOnUse">
+      <circle cx="1.5" cy="1.5" r="0.9" fill="#7DA2C8" opacity="0.18"/>
     </pattern>
+    <filter id="shadow" x="-25%" y="-30%" width="160%" height="180%">
+      <feDropShadow dx="0" dy="10" stdDeviation="11" flood-color="#01060D" flood-opacity="0.42"/>
+    </filter>
+    <clipPath id="line1"><rect class="reveal line1" x="80" y="86" width="250" height="18"/></clipPath>
+    <clipPath id="line2"><rect class="reveal line2" x="80" y="109" width="250" height="18"/></clipPath>
+    <clipPath id="line3"><rect class="reveal line3" x="80" y="132" width="250" height="18"/></clipPath>
+    <clipPath id="line4"><rect class="reveal line4" x="80" y="155" width="250" height="18"/></clipPath>
   </defs>
-  <rect width="540" height="236" rx="14" fill="#0D1117" stroke="#30363D" stroke-width="1.5"/>
-  <rect x="1" y="1" width="538" height="234" rx="13" fill="url(#dotGrid)" opacity="0.8"/>
-  <rect x="28" y="30" width="64" height="4" rx="2" fill="url(#heroAccent)"/>
-  <text x="512" y="38" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="11" fill="#8B949E">@pushpikaodisha · Sri Lanka</text>
-  <text x="28" y="82" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="28" font-weight="700" letter-spacing="-0.5" fill="#F0F6FC">Pushpika Odisha</text>
-  <text x="28" y="114" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="15" font-weight="600" fill="url(#heroAccent)">Full-Stack &amp; Systems Software Engineer</text>
-  <text x="28" y="148" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="13" fill="#8B949E">Zero-dependency engines, resilient APIs, &amp;</text><text x="28" y="168" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="13" fill="#8B949E">interactive web systems.</text>
-  <rect x="28" y="190" width="262" height="24" rx="6" fill="#1F2937" stroke="#374151" stroke-width="1"/>
-  <circle cx="41" cy="202" r="3.5" fill="#22C55E"/>
-  <text x="52" y="206" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="11" fill="#C9D1D9">Node.js · PHP 8 · Systems · Graphics</text>
+  <style>
+    .reveal{animation-duration:12s;animation-iteration-count:infinite;animation-timing-function:steps(26,end)}
+    .line1{animation-name:type1}.line2{animation-name:type2}.line3{animation-name:type3}.line4{animation-name:type4}
+    @keyframes type1{0%,3%{width:0}18%,94%{width:250px}100%{width:0}}
+    @keyframes type2{0%,15%{width:0}30%,94%{width:250px}100%{width:0}}
+    @keyframes type3{0%,27%{width:0}42%,94%{width:250px}100%{width:0}}
+    @keyframes type4{0%,39%{width:0}54%,94%{width:250px}100%{width:0}}
+    .progress{animation:build 12s ease-in-out infinite}
+    @keyframes build{0%,42%{width:0}68%,94%{width:206px}100%{width:0}}
+    .success{animation:success 12s ease-in-out infinite}
+    @keyframes success{0%,62%{opacity:0;transform:translateY(4px)}70%,94%{opacity:1;transform:translateY(0)}100%{opacity:0}}
+    .building{opacity:0;animation:building 12s ease-in-out infinite}
+    @keyframes building{0%,5%{opacity:0}10%,58%{opacity:1}65%,100%{opacity:0}}
+    .preview{animation:float 6s ease-in-out infinite}
+    @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+    .bars{animation:bars 12s ease-in-out infinite;transform-origin:308px 218px}
+    @keyframes bars{0%,48%{transform:scaleY(.2);opacity:.4}70%,94%{transform:scaleY(1);opacity:1}100%{transform:scaleY(.2);opacity:.4}}
+    .flow{stroke-dasharray:5 11;animation:flow 2s linear infinite}
+    @keyframes flow{to{stroke-dashoffset:-32}}
+    .status{animation:pulse 2.8s ease-in-out infinite}
+    @keyframes pulse{50%{opacity:.4}}
+    @media(prefers-reduced-motion:reduce){.reveal,.progress,.success,.building,.preview,.bars,.flow,.status{animation:none}.building{opacity:0}}
+  </style>
+  <rect width="540" height="560" rx="16" fill="url(#background)" stroke="#263B54" stroke-width="1.5"/>
+  <rect x="1" y="1" width="538" height="558" rx="15" fill="url(#dots)"/>
+  <circle cx="420" cy="120" r="240" fill="url(#glow)"/>
+  <rect x="32" y="34" width="26" height="3.5" rx="1.75" fill="url(#accent)"/>
+  <text x="66" y="39" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="10.5" letter-spacing="1.2" fill="#839BB5">SYSTEMS &amp; FULL-STACK ENGINEER</text>
+  <text x="32" y="88" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="38" font-weight="800" letter-spacing="-1" fill="#F0F6FC">Pushpika</text>
+  <text x="32" y="130" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="38" font-weight="800" letter-spacing="-1" fill="url(#accent)">Odisha</text>
+  <text x="32" y="166" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="16" font-weight="500" fill="#C9D8E8">Zero-dependency engines. Resilient systems.</text>
+  <text x="32" y="194" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="10.5" letter-spacing="1" fill="#839BB5">NODE.JS  /  PHP 8  /  CRYPTO  /  CANVAS</text>
+  <g transform="translate(76, 218) scale(0.96)">
+    <!-- Signal Wire Connecting Telemetry to Terminal -->
+    <g fill="none" stroke="#2D4F6C" stroke-width="1.5">
+      <path d="M 318 195 v 46 q 0 18 -18 18 h -38"/>
+      <path class="flow" d="M 318 195 v 46 q 0 18 -18 18 h -38" stroke="#38BDF8"/>
+    </g>
+
+    <!-- Main IDE Window -->
+    <g filter="url(#shadow)">
+      <rect x="0" y="6" width="356" height="218" rx="13" fill="#0B1525" stroke="#46698C" stroke-width="1.2"/>
+      <path d="M 13 6 h 330 q 13 0 13 13 v 22 H 0 V 19 Q 0 6 13 6 Z" fill="#16253B"/>
+      <circle cx="18" cy="24" r="3.8" fill="#F87171"/>
+      <circle cx="31" cy="24" r="3.8" fill="#FBBF24"/>
+      <circle cx="44" cy="24" r="3.8" fill="#34D399"/>
+      <text x="184" y="28" text-anchor="middle" fill="#839BB5" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="10">workspace / core.mjs</text>
+      <path d="M 0 41 H 356 M 56 41 V 224" stroke="#263B54"/>
+
+      <!-- Sidebar Tree Lines -->
+      <g fill="#839BB5" opacity="0.45">
+        <rect x="14" y="60" width="26" height="4" rx="2"/>
+        <rect x="20" y="76" width="22" height="4" rx="2"/>
+        <rect x="20" y="92" width="17" height="4" rx="2"/>
+        <rect x="20" y="108" width="24" height="4" rx="2"/>
+        <rect x="14" y="136" width="26" height="4" rx="2"/>
+        <rect x="20" y="152" width="19" height="4" rx="2"/>
+      </g>
+
+      <!-- Active Tab & Inactive Tab -->
+      <rect x="56" y="41" width="98" height="28" fill="#132942"/>
+      <rect x="56" y="41" width="98" height="2" fill="#38BDF8"/>
+      <text x="69" y="59" fill="#38BDF8" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="10" font-weight="700">JS</text>
+      <text x="89" y="59" fill="#F0F6FC" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="10">core.mjs</text>
+      <text x="170" y="59" fill="#839BB5" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="10">merkle.php</text>
+      <circle cx="338" cy="55" r="3" fill="#34D399" class="status"/>
+
+      <!-- Line Numbers -->
+      <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="10" fill="#4B6584">
+        <text x="65" y="100">1</text>
+        <text x="65" y="123">2</text>
+        <text x="65" y="146">3</text>
+        <text x="65" y="169">4</text>
+        <text x="65" y="192">5</text>
+      </g>
+
+      <!-- Animated Typing Code -->
+      <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="11.2" fill="#F0F6FC">
+        <text x="82" y="100" clip-path="url(#line1)"><tspan fill="#C084FC">async function</tspan> <tspan fill="#60A5FA">boot</tspan>() {</text>
+        <text x="82" y="123" clip-path="url(#line2)">  <tspan fill="#C084FC">const</tspan> sys = <tspan fill="#60A5FA">createVault</tspan>();</text>
+        <text x="82" y="146" clip-path="url(#line3)">  <tspan fill="#C084FC">await</tspan> sys.<tspan fill="#34D399">verifyMerkle</tspan>();</text>
+        <text x="82" y="169" clip-path="url(#line4)">  <tspan fill="#C084FC">return</tspan> sys.<tspan fill="#34D399">stream</tspan>();</text>
+        <text x="82" y="192">}</text>
+      </g>
+    </g>
+
+    <!-- Floating Telemetry Glass Card -->
+    <g class="preview">
+      <g filter="url(#shadow)">
+        <rect x="254" y="118" width="126" height="118" rx="12" fill="url(#glass)" stroke="#46698C" stroke-width="1.2"/>
+        <path d="M 254 145 H 380" stroke="#263B54"/>
+        <circle cx="268" cy="132" r="3.2" fill="#34D399"/>
+        <text x="278" y="136" fill="#F0F6FC" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="9" font-weight="600" letter-spacing="0.9">TELEMETRY</text>
+        <rect x="267" y="156" width="52" height="5" rx="2.5" fill="#839BB5" opacity="0.65"/>
+        <rect x="267" y="167" width="34" height="3.5" rx="1.75" fill="#839BB5" opacity="0.38"/>
+        <g class="bars">
+          <rect x="269" y="196" width="14" height="22" rx="3" fill="#38BDF8"/>
+          <rect x="291" y="185" width="14" height="33" rx="3" fill="url(#accent)"/>
+          <rect x="313" y="190" width="14" height="28" rx="3" fill="#34D399"/>
+          <rect x="335" y="177" width="14" height="41" rx="3" fill="url(#accent)"/>
+        </g>
+      </g>
+    </g>
+
+    <!-- Floating Terminal Test Toast -->
+    <g filter="url(#shadow)">
+      <rect x="26" y="210" width="236" height="68" rx="11" fill="#0B1525" stroke="#46698C" stroke-width="1.2"/>
+      <text x="41" y="232" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="10.5" fill="#F0F6FC"><tspan fill="#38BDF8">$</tspan> node --test core.mjs</text>
+      <rect x="41" y="242" width="206" height="4" rx="2" fill="#1B2B40"/>
+      <rect class="progress" x="41" y="242" width="206" height="4" rx="2" fill="url(#accent)"/>
+      <text class="building" x="41" y="264" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="10" fill="#839BB5">running zero-dep checks...</text>
+      <text class="success" x="41" y="264" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="10" fill="#34D399">✓ zero-dep · all checks passed</text>
+    </g>
+  </g>
+  <line x1="32" y1="510" x2="508" y2="510" stroke="#263B54" stroke-width="1"/>
+  <circle cx="38" cy="534" r="3.5" fill="#34D399" class="status"/>
+  <text x="50" y="538" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="10" letter-spacing="0.8" fill="#839BB5">OPEN TO ENGINEERING ROLES</text>
+  <text x="508" y="538" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="10" fill="#839BB5">SRI LANKA · @PUSHPIKAODISHA</text>
 </svg>
