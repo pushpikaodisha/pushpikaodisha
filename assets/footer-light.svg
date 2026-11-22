@@ -1,17 +1,20 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="960" height="108" viewBox="0 0 960 108" role="img" aria-label="Let's build something dependable">
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="96" viewBox="0 0 960 96" role="img" aria-label="Pushpika Odisha contact signature">
   <defs>
-    <linearGradient id="footerBg" x1="0%" y1="0%" x2="100%" y2="100%">
+    <linearGradient id="fBg" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#F8FAFC"/>
       <stop offset="100%" stop-color="#EFF6FF"/>
     </linearGradient>
-    <linearGradient id="footerAccent" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#059669"/>
-      <stop offset="55%" stop-color="#0284C7"/>
-      <stop offset="100%" stop-color="#4F46E5"/>
+    <linearGradient id="fAccent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0284C7"/>
+      <stop offset="55%" stop-color="#4F46E5"/>
+      <stop offset="100%" stop-color="#7C3AED"/>
     </linearGradient>
   </defs>
-  <rect width="960" height="108" rx="16" fill="url(#footerBg)" stroke="#CBD5E1" stroke-width="1.5"/>
-  <rect x="36" y="31" width="4" height="46" rx="2" fill="url(#footerAccent)"/>
-  <text x="56" y="49" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="16.5" font-weight="700" fill="#0F172A">Let's build dependable software and high-impact engineering systems.</text>
-  <text x="56" y="73" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12" fill="#64748B">pushpikaodisha.contact@gmail.com  ·  github.com/pushpikaodisha  ·  Sri Lanka</text>
+  <rect width="960" height="96" rx="16" fill="url(#fBg)" stroke="#CBD5E1" stroke-width="1.5"/>
+  <g transform="translate(34, 32)">
+    <polygon points="16,0 30,8 30,24 16,32 2,24 2,8" fill="none" stroke="url(#fAccent)" stroke-width="1.6"/>
+    <text x="16" y="20" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="10.5" font-weight="700" fill="#0F172A">PO</text>
+  </g>
+  <text x="82" y="45" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="15.5" font-weight="700" fill="#0F172A">Open to systems engineering, backend architecture, and collaborative R&amp;D.</text>
+  <text x="82" y="68" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="11.5" fill="#64748B">pushpikaodisha.contact@gmail.com  ·  github.com/pushpikaodisha  ·  Sri Lanka</text>
 </svg>
