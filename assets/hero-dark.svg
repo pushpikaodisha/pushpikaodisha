@@ -1,67 +1,49 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="960" height="300" viewBox="0 0 960 300" role="img" aria-label="Pushpika Odisha — Systems and Full-Stack Architect">
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="265" viewBox="0 0 960 265" role="img" aria-label="Pushpika Odisha — Software, Web Applications and AI Systems Engineer">
   <defs>
     <linearGradient id="heroBg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#060A12"/>
-      <stop offset="100%" stop-color="#0D1526"/>
+      <stop offset="0%" stop-color="#0B0F17"/>
+      <stop offset="100%" stop-color="#111827"/>
     </linearGradient>
     <linearGradient id="brandGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#22D3EE"/>
-      <stop offset="55%" stop-color="#818CF8"/>
-      <stop offset="100%" stop-color="#A855F7"/>
+      <stop offset="0%" stop-color="#38BDF8"/>
+      <stop offset="100%" stop-color="#6366F1"/>
     </linearGradient>
-    <radialGradient id="constellationGlow">
-      <stop offset="0%" stop-color="#22D3EE" stop-opacity="0.22"/>
-      <stop offset="60%" stop-color="#A855F7" stop-opacity="0.08"/>
-      <stop offset="100%" stop-color="#22D3EE" stop-opacity="0"/>
-    </radialGradient>
-    <pattern id="orthoGrid" width="32" height="32" patternUnits="userSpaceOnUse">
-      <path d="M 32 0 L 0 0 0 32" fill="none" stroke="#1E293B" stroke-width="0.6" stroke-opacity="0.45"/>
+    <pattern id="subtleGrid" width="28" height="28" patternUnits="userSpaceOnUse">
+      <path d="M 28 0 L 0 0 0 28" fill="none" stroke="#1E293B" stroke-width="0.6" stroke-opacity="0.45"/>
     </pattern>
   </defs>
   <style>
-    .pkt{stroke-dasharray:6 18;animation:flow 2.8s linear infinite}
-    @keyframes flow{to{stroke-dashoffset:-48}}
-    .orbit{transform-origin:745px 136px;animation:spin 32s linear infinite}
-    @keyframes spin{to{transform:rotate(360deg)}}
+    .flow{stroke-dasharray:5 11;animation:flow 2.4s linear infinite}
+    @keyframes flow{to{stroke-dashoffset:-32}}
     .pulse{animation:blink 3s ease-in-out infinite}
-    @keyframes blink{50%{opacity:0.35}}
-    @media(prefers-reduced-motion:reduce){.pkt,.orbit,.pulse{animation:none}}
+    @keyframes blink{50%{opacity:0.4}}
+    @media(prefers-reduced-motion:reduce){.flow,.pulse{animation:none}}
   </style>
 
-  <rect width="960" height="300" rx="16" fill="url(#heroBg)" stroke="#1E293B" stroke-width="1.5"/>
-  <rect x="1" y="1" width="958" height="298" rx="15" fill="url(#orthoGrid)"/>
-  <circle cx="745" cy="136" r="190" fill="url(#constellationGlow)"/>
+  <rect width="960" height="265" rx="16" fill="url(#heroBg)" stroke="#1F2937" stroke-width="1.5"/>
+  <rect x="1" y="1" width="958" height="263" rx="15" fill="url(#subtleGrid)"/>
 
-  <!-- 4D Hypercube Constellation + Subtle Orbital Telemetry Rings -->
-  <g class="orbit">
-    <circle cx="745" cy="136" r="114" fill="none" stroke="#334155" stroke-width="1" stroke-dasharray="3 9" opacity="0.55"/>
-    <circle cx="859" cy="136" r="2.5" fill="#22D3EE"/>
-    <circle cx="631" cy="136" r="2.5" fill="#A855F7"/>
-  </g>
-  <circle cx="745" cy="136" r="90" fill="none" stroke="#1E293B" stroke-width="0.9" opacity="0.6"/>
-  <line x1="743.8" y1="115.5" x2="724.6" y2="124.4" stroke="#A855F7" stroke-width="1.0" stroke-opacity="0.23"/><line x1="743.8" y1="115.5" x2="743.7" y2="166.1" stroke="#818CF8" stroke-width="1.0" stroke-opacity="0.24"/><line x1="724.6" y1="124.4" x2="722.1" y2="183.5" stroke="#818CF8" stroke-width="1.0" stroke-opacity="0.28"/><line x1="743.8" y1="115.5" x2="799.0" y2="104.6" stroke="#818CF8" stroke-width="1.0" stroke-opacity="0.29"/><line x1="724.6" y1="124.4" x2="782.5" y2="114.9" stroke="#818CF8" stroke-width="1.0" stroke-opacity="0.29"/><line x1="743.7" y1="166.1" x2="722.1" y2="183.5" stroke="#A855F7" stroke-width="1.0" stroke-opacity="0.29"/><line x1="743.8" y1="115.5" x2="707.2" y2="82.3" stroke="#818CF8" stroke-width="1.0" stroke-opacity="0.33"/><line x1="799.0" y1="104.6" x2="782.5" y2="114.9" stroke="#A855F7" stroke-width="1.0" stroke-opacity="0.35"/><line x1="743.7" y1="166.1" x2="806.9" y2="172.2" stroke="#818CF8" stroke-width="1.0" stroke-opacity="0.35"/><line x1="724.6" y1="124.4" x2="666.4" y2="90.1" stroke="#818CF8" stroke-width="1.0" stroke-opacity="0.37"/><line x1="722.1" y1="183.5" x2="789.2" y2="198.8" stroke="#818CF8" stroke-width="1.0" stroke-opacity="0.39"/><line x1="743.7" y1="166.1" x2="700.5" y2="161.1" stroke="#818CF8" stroke-width="1.0" stroke-opacity="0.39"/><line x1="782.5" y1="114.9" x2="789.2" y2="198.8" stroke="#818CF8" stroke-width="1.0" stroke-opacity="0.4"/><line x1="799.0" y1="104.6" x2="806.9" y2="172.2" stroke="#818CF8" stroke-width="1.0" stroke-opacity="0.4"/><line x1="806.9" y1="172.2" x2="789.2" y2="198.8" stroke="#A855F7" stroke-width="1.0" stroke-opacity="0.44"/><line x1="722.1" y1="183.5" x2="648.5" y2="192.1" stroke="#818CF8" stroke-width="1.0" stroke-opacity="0.47"/><line x1="707.2" y1="82.3" x2="666.4" y2="90.1" stroke="#A855F7" stroke-width="1.0" stroke-opacity="0.48"/><line x1="707.2" y1="82.3" x2="700.5" y2="161.1" stroke="#22D3EE" stroke-width="1.0" stroke-opacity="0.49"/><line x1="799.0" y1="104.6" x2="791.1" y2="40.5" stroke="#22D3EE" stroke-width="1.45" stroke-opacity="0.51"/><line x1="782.5" y1="114.9" x2="749.4" y2="37.5" stroke="#22D3EE" stroke-width="1.45" stroke-opacity="0.52"/><line x1="707.2" y1="82.3" x2="791.1" y2="40.5" stroke="#22D3EE" stroke-width="1.45" stroke-opacity="0.55"/><line x1="666.4" y1="90.1" x2="648.5" y2="192.1" stroke="#22D3EE" stroke-width="1.45" stroke-opacity="0.56"/><line x1="700.5" y1="161.1" x2="648.5" y2="192.1" stroke="#A855F7" stroke-width="1.45" stroke-opacity="0.57"/><line x1="806.9" y1="172.2" x2="806.1" y2="170.6" stroke="#22D3EE" stroke-width="1.45" stroke-opacity="0.59"/><line x1="666.4" y1="90.1" x2="749.4" y2="37.5" stroke="#22D3EE" stroke-width="1.45" stroke-opacity="0.6"/><line x1="700.5" y1="161.1" x2="806.1" y2="170.6" stroke="#22D3EE" stroke-width="1.45" stroke-opacity="0.63"/><line x1="789.2" y1="198.8" x2="751.7" y2="249.9" stroke="#22D3EE" stroke-width="1.45" stroke-opacity="0.67"/><line x1="791.1" y1="40.5" x2="749.4" y2="37.5" stroke="#A855F7" stroke-width="1.45" stroke-opacity="0.68"/><line x1="791.1" y1="40.5" x2="806.1" y2="170.6" stroke="#22D3EE" stroke-width="1.45" stroke-opacity="0.7"/><line x1="648.5" y1="192.1" x2="751.7" y2="249.9" stroke="#22D3EE" stroke-width="1.45" stroke-opacity="0.75"/><line x1="749.4" y1="37.5" x2="751.7" y2="249.9" stroke="#22D3EE" stroke-width="1.45" stroke-opacity="0.79"/><line x1="806.1" y1="170.6" x2="751.7" y2="249.9" stroke="#A855F7" stroke-width="1.45" stroke-opacity="0.81"/>
-  <line x1="743.8" y1="115.5" x2="724.6" y2="124.4" stroke="#22D3EE" stroke-width="1.8" class="pkt"/><line x1="743.7" y1="166.1" x2="722.1" y2="183.5" stroke="#22D3EE" stroke-width="1.8" class="pkt"/><line x1="722.1" y1="183.5" x2="789.2" y2="198.8" stroke="#22D3EE" stroke-width="1.8" class="pkt"/><line x1="722.1" y1="183.5" x2="648.5" y2="192.1" stroke="#22D3EE" stroke-width="1.8" class="pkt"/><line x1="707.2" y1="82.3" x2="791.1" y2="40.5" stroke="#22D3EE" stroke-width="1.8" class="pkt"/><line x1="700.5" y1="161.1" x2="806.1" y2="170.6" stroke="#22D3EE" stroke-width="1.8" class="pkt"/><line x1="749.4" y1="37.5" x2="751.7" y2="249.9" stroke="#22D3EE" stroke-width="1.8" class="pkt"/>
-  <circle cx="743.8" cy="115.5" r="2.2" fill="#A855F7" fill-opacity="0.48"/><circle cx="799.0" cy="104.6" r="2.6" fill="#A855F7" fill-opacity="0.62"/><circle cx="743.7" cy="166.1" r="2.2" fill="#A855F7" fill-opacity="0.53"/><circle cx="806.9" cy="172.2" r="2.8" fill="#A855F7" fill-opacity="0.68"/><circle cx="707.2" cy="82.3" r="2.9" fill="#A855F7" fill-opacity="0.7"/><circle cx="791.1" cy="40.5" r="3.6" fill="#A855F7" fill-opacity="0.88"/><circle cx="700.5" cy="161.1" r="3.1" fill="#A855F7" fill-opacity="0.76"/><circle cx="806.1" cy="170.6" r="4.0" fill="#A855F7" fill-opacity="0.96"/><circle cx="724.6" cy="124.4" r="2.2" fill="#22D3EE" fill-opacity="0.51"/><circle cx="782.5" cy="114.9" r="2.5" fill="#22D3EE" fill-opacity="0.6"/><circle cx="722.1" cy="183.5" r="2.4" fill="#22D3EE" fill-opacity="0.58"/><circle cx="789.2" cy="198.8" r="2.9" fill="#22D3EE" fill-opacity="0.7"/><circle cx="666.4" cy="90.1" r="3.1" fill="#22D3EE" fill-opacity="0.74"/><circle cx="749.4" cy="37.5" r="3.8" fill="#22D3EE" fill-opacity="0.91"/><circle cx="648.5" cy="192.1" r="3.5" fill="#22D3EE" fill-opacity="0.84"/><circle cx="751.7" cy="249.9" r="4.3" fill="#22D3EE" fill-opacity="1.0"/>
-  <text x="745" y="276" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="9.5" letter-spacing="1.4" fill="#64748B">4D HYPERCUBE PROJECTION · 16 VERTICES · 32 EDGES</text>
+  <!-- Left Identity Column -->
+  <rect x="40" y="38" width="24" height="3.5" rx="1.75" fill="url(#brandGrad)"/>
+  <text x="74" y="43" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="10.5" font-weight="600" letter-spacing="1.2" fill="#38BDF8">SOFTWARE · WEB APPS · AI SYSTEMS</text>
 
-  <!-- PO Geometric Monogram Crest -->
-  <g transform="translate(44, 34)">
-    <polygon points="16,0 30,8 30,24 16,32 2,24 2,8" fill="none" stroke="url(#brandGrad)" stroke-width="1.8"/>
-    <text x="16" y="20" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="11" font-weight="700" fill="#F8FAFC">PO</text>
-  </g>
-  <text x="88" y="54" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="11" letter-spacing="1.6" fill="#22D3EE">SYSTEMS &amp; FULL-STACK ARCHITECT</text>
+  <text x="40" y="94" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="40" font-weight="800" letter-spacing="-1" fill="#F8FAFC">Pushpika <tspan fill="url(#brandGrad)">Odisha</tspan></text>
+  <text x="40" y="128" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="15.5" font-weight="500" fill="#CBD5E1">Building full-stack web applications, reliable backend</text>
+  <text x="40" y="150" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="15.5" font-weight="500" fill="#CBD5E1">software, and practical AI-integrated workflows.</text>
 
-  <!-- Main Typography -->
-  <text x="44" y="114" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="42" font-weight="800" letter-spacing="-1.1" fill="#F8FAFC">Pushpika <tspan fill="url(#brandGrad)">Odisha</tspan></text>
-  <text x="44" y="150" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="16" font-weight="500" fill="#CBD5E1">Zero-dependency engines, cryptographic integrity,</text>
-  <text x="44" y="173" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="16" font-weight="500" fill="#CBD5E1">and deterministic full-stack systems.</text>
+  <!-- Clean Capability Pill -->
+  <rect x="40" y="176" width="326" height="26" rx="6" fill="#182235" stroke="#334155" stroke-width="1"/>
+  <text x="54" y="193" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="10.5" fill="#CBD5E1">Node.js · PHP 8 · JavaScript · SQL · AI APIs</text>
 
-  <!-- Stack Coordinate Chips -->
-  <text x="44" y="214" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="11" letter-spacing="1.1" fill="#64748B">NODE.JS ESM  ·  PHP 8.3 MVC  ·  MERKLE CRYPTO  ·  4D / AUDIO</text>
+  <!-- Bottom Status Strip -->
+  <line x1="40" y1="222" x2="520" y2="222" stroke="#1F2937" stroke-width="1"/>
+  <circle cx="46" cy="242" r="3.5" fill="#10B981" class="pulse"/>
+  <text x="58" y="246" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="10.5" fill="#CBD5E1">Open to Software &amp; Web/AI Engineering Roles</text>
+  <text x="520" y="246" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="10.5" fill="#94A3B8">Sri Lanka · @pushpikaodisha</text>
 
-  <!-- Bottom Observatory Status Bar -->
-  <line x1="44" y1="246" x2="540" y2="246" stroke="#1E293B" stroke-width="1"/>
-  <circle cx="50" cy="268" r="3.5" fill="#34D399" class="pulse"/>
-  <text x="63" y="272" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="10.5" letter-spacing="0.8" fill="#CBD5E1">SRI LANKA (6.93° N, 79.86° E)</text>
-  <text x="540" y="272" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="10.5" letter-spacing="0.8" fill="#64748B">@PUSHPIKAODISHA</text>
+  <!-- Right System Architecture Bus & Nodes -->
+  <path d="M 732 80 H 748 M 834 118 V 132 H 646 V 146 M 732 184 H 748" fill="none" stroke="#334155" stroke-width="1.5"/>
+  <path class="flow" d="M 732 80 H 748 M 834 118 V 132 H 646 V 146 M 732 184 H 748" fill="none" stroke="#38BDF8" stroke-width="1.6"/>
+  <rect x="560" y="42" width="172" height="76" rx="10" fill="#131B2B" stroke="#334155" stroke-width="1.2"/><rect x="560" y="42" width="172" height="2.5" rx="1.2" fill="#38BDF8"/><text x="573" y="64" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="9" font-weight="600" letter-spacing="0.6" fill="#38BDF8">01 · WEB CLIENT</text><text x="573" y="85" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="13.5" font-weight="700" fill="#F8FAFC">Responsive UI &amp; Apps</text><text x="573" y="103" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="9.5" fill="#94A3B8">HTML5 · JS · SSE Streams</text><rect x="748" y="42" width="172" height="76" rx="10" fill="#131B2B" stroke="#334155" stroke-width="1.2"/><rect x="748" y="42" width="172" height="2.5" rx="1.2" fill="#6366F1"/><text x="761" y="64" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="9" font-weight="600" letter-spacing="0.6" fill="#6366F1">02 · API &amp; CORE</text><text x="761" y="85" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="13.5" font-weight="700" fill="#F8FAFC">Backend Services</text><text x="761" y="103" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="9.5" fill="#94A3B8">Node.js · PHP 8 · RBAC</text><rect x="560" y="146" width="172" height="76" rx="10" fill="#131B2B" stroke="#334155" stroke-width="1.2"/><rect x="560" y="146" width="172" height="2.5" rx="1.2" fill="#10B981"/><text x="573" y="168" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="9" font-weight="600" letter-spacing="0.6" fill="#10B981">03 · AI &amp; SEARCH</text><text x="573" y="189" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="13.5" font-weight="700" fill="#F8FAFC">Intelligent Workflows</text><text x="573" y="207" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="9.5" fill="#94A3B8">LLM APIs · FTS5 · Graphs</text><rect x="748" y="146" width="172" height="76" rx="10" fill="#131B2B" stroke="#334155" stroke-width="1.2"/><rect x="748" y="146" width="172" height="2.5" rx="1.2" fill="#38BDF8"/><text x="761" y="168" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="9" font-weight="600" letter-spacing="0.6" fill="#38BDF8">04 · DATA LAYER</text><text x="761" y="189" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="13.5" font-weight="700" fill="#F8FAFC">Storage &amp; Proofs</text><text x="761" y="207" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="9.5" fill="#94A3B8">SQLite PDO · Merkle Audit</text>
+  <text x="740" y="246" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="9.5" letter-spacing="1" fill="#94A3B8">PRODUCTION WEB &amp; AI ARCHITECTURE</text>
 </svg>
