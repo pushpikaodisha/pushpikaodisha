@@ -46,17 +46,19 @@ I'm **Pushpika Odisha**, a Software Engineer from **Sri Lanka** specializing in 
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="assets/projects-dark.svg" />
     <source media="(prefers-color-scheme: light)" srcset="assets/projects-light.svg" />
-    <img src="assets/projects-dark.svg" width="100%" alt="Flagship Software, Web Applications and AI Platforms" />
+    <img src="assets/projects-dark.svg" width="100%" alt="Auto-Synced Public Platforms" />
   </picture>
 </p>
 
+<!-- PROJECTS:START -->
 <table>
   <tr>
     <td width="50%" valign="top">
       <h4>01 · <a href="https://github.com/pushpikaodisha/neuroscribe-vault">NeuroScribe Studio ↗</a></h4>
       <p>Semantic Markdown knowledge vault and research workspace with SQLite FTS5 indexing and interactive graph exploration.</p>
+      <p><code>Node.js</code> <code>SQLite FTS5</code> <code>Semantic Search</code></p>
       <details>
-        <summary><sub><b>Architecture Deep-Dive</b></sub></summary>
+        <summary><sub><b>Architecture &amp; Details</b> · Updated 2026-11-23</sub></summary>
         <br />
         <ul>
           <li><b>Core:</b> Node.js 22 runtime with zero external search bloat</li>
@@ -66,38 +68,11 @@ I'm **Pushpika Odisha**, a Software Engineer from **Sri Lanka** specializing in 
       </details>
     </td>
     <td width="50%" valign="top">
-      <h4>02 · <a href="https://github.com/pushpikaodisha/apexguild-workflow">ApexGuild Workflow ↗</a></h4>
-      <p>Enterprise multi-tier approval and state-machine web platform enforcing strict transition invariants and granular RBAC.</p>
-      <details>
-        <summary><sub><b>Architecture Deep-Dive</b></sub></summary>
-        <br />
-        <ul>
-          <li><b>Backend:</b> PHP 8.3 strict OOP/MVC service architecture</li>
-          <li><b>Security:</b> Role-based access control &amp; guarded state transitions</li>
-          <li><b>Persistence:</b> Parameterized SQLite PDO storage layer</li>
-        </ul>
-      </details>
-    </td>
-  </tr>
-  <tr>
-    <td width="50%" valign="top">
-      <h4>03 · <a href="https://github.com/pushpikaodisha/omnimesh-telemetry">OmniMesh Telemetry ↗</a></h4>
-      <p>Distributed edge telemetry and automation web orchestrator streaming live device events via Server-Sent Events (SSE).</p>
-      <details>
-        <summary><sub><b>Architecture Deep-Dive</b></sub></summary>
-        <br />
-        <ul>
-          <li><b>Streaming:</b> Real-time SSE push pipeline to web dashboards</li>
-          <li><b>Automation:</b> Rule-driven edge event orchestration in PHP 8.3</li>
-          <li><b>Storage:</b> Lightweight SQLite PDO event persistence</li>
-        </ul>
-      </details>
-    </td>
-    <td width="50%" valign="top">
-      <h4>04 · <a href="https://github.com/pushpikaodisha/polyglot-forge">PolyglotForge ↗</a></h4>
+      <h4>02 · <a href="https://github.com/pushpikaodisha/polyglot-forge">PolyglotForge ↗</a></h4>
       <p>Zero-dependency API contract simulator and chaos engineering workbench built on pure Node.js ESM for resilience testing.</p>
+      <p><code>Node.js ESM</code> <code>API Simulation</code> <code>0 NPM Deps</code></p>
       <details>
-        <summary><sub><b>Architecture Deep-Dive</b></sub></summary>
+        <summary><sub><b>Architecture &amp; Details</b> · Updated 2026-11-23</sub></summary>
         <br />
         <ul>
           <li><b>Runtime:</b> Pure Node.js 22 ESM with 0 NPM dependencies</li>
@@ -109,59 +84,71 @@ I'm **Pushpika Odisha**, a Software Engineer from **Sri Lanka** specializing in 
   </tr>
   <tr>
     <td width="50%" valign="top">
-      <h4>05 · <a href="https://github.com/pushpikaodisha/chronoledger-vault">ChronoLedger Vault ↗</a></h4>
-      <p>Tamper-evident document notary and cryptographic audit system implementing RFC 6962 Merkle Tree verification proofs.</p>
+      <h4>03 · <a href="https://github.com/pushpikaodisha/omnimesh-telemetry">OmniMesh Telemetry ↗</a></h4>
+      <p>Distributed edge telemetry and automation web orchestrator streaming live device events via Server-Sent Events (SSE).</p>
+      <p><code>PHP 8.3 MVC</code> <code>SSE Streaming</code> <code>SQLite PDO</code></p>
       <details>
-        <summary><sub><b>Architecture Deep-Dive</b></sub></summary>
+        <summary><sub><b>Architecture &amp; Details</b> · Updated 2026-11-23</sub></summary>
         <br />
         <ul>
-          <li><b>Cryptography:</b> RFC 6962 Merkle Tree inclusion &amp; consistency proofs</li>
-          <li><b>Footprint:</b> Zero external NPM dependencies on Node.js 22</li>
-          <li><b>Use Case:</b> Verifiable audit trails for critical records</li>
+          <li><b>Streaming:</b> Real-time SSE push pipeline to web dashboards</li>
+          <li><b>Automation:</b> Rule-driven edge event orchestration in PHP 8.3</li>
+          <li><b>Storage:</b> Lightweight SQLite PDO event persistence</li>
         </ul>
       </details>
     </td>
     <td width="50%" valign="top">
-      <h4>06 · <a href="https://github.com/pushpikaodisha/basic-website">Responsive Web Systems ↗</a></h4>
-      <p>Modern responsive web application architecture with adaptive dark/light theming, modular CSS layouts, and accessible UI state.</p>
+      <h4>04 · <a href="https://github.com/pushpikaodisha/binaural-flow-studio">Binaural Flow Studio ↗</a></h4>
+      <p>Interactive browser audio synthesizer and spatial sound visualization app powered by the Web Audio API.</p>
+      <p><code>Web Audio API</code> <code>HTML5</code> <code>JavaScript</code></p>
       <details>
-        <summary><sub><b>Architecture Deep-Dive</b></sub></summary>
+        <summary><sub><b>Architecture &amp; Details</b> · Updated 2026-11-23</sub></summary>
         <br />
         <ul>
-          <li><b>Frontend:</b> Semantic HTML5, modular CSS3, Vanilla ES6+</li>
-          <li><b>UX:</b> Adaptive Dark/Light theme switching &amp; mobile layout</li>
-          <li><b>Performance:</b> Clean zero-framework bundle delivery</li>
+          <li><b>Audio Engine:</b> Real-time browser synthesis using Web Audio API</li>
+          <li><b>Spatial:</b> HRTF 3D binaural panning &amp; acoustic visualization</li>
+        </ul>
+      </details>
+    </td>
+  </tr>
+  <tr>
+    <td width="50%" valign="top">
+      <h4>05 · <a href="https://github.com/pushpikaodisha/chronoforge-4d">ChronoForge 4D ↗</a></h4>
+      <p>Browser-based 3D/4D geometric projection engine with responsive touch and mobile sensor controls.</p>
+      <p><code>HTML5 Canvas</code> <code>JavaScript</code> <code>Geometry</code></p>
+      <details>
+        <summary><sub><b>Architecture &amp; Details</b> · Updated 2026-11-23</sub></summary>
+        <br />
+        <ul>
+          <li><b>Rendering:</b> Smooth HTML5 Canvas 2D/3D real-time projection</li>
+          <li><b>Input:</b> Desktop controls &amp; mobile gyroscope integration</li>
+        </ul>
+      </details>
+    </td>
+    <td width="50%" valign="top">
+      <h4>06 · <a href="https://github.com/pushpikaodisha/apexguild-workflow">ApexGuild Workflow ↗</a></h4>
+      <p>Enterprise multi-tier approval and state-machine web platform enforcing strict transition invariants and granular RBAC.</p>
+      <p><code>PHP 8.3 MVC</code> <code>SQLite PDO</code> <code>RBAC</code></p>
+      <details>
+        <summary><sub><b>Architecture &amp; Details</b> · Updated 2026-11-23</sub></summary>
+        <br />
+        <ul>
+          <li><b>Backend:</b> PHP 8.3 strict OOP/MVC service architecture</li>
+          <li><b>Security:</b> Role-based access control &amp; guarded state transitions</li>
+          <li><b>Persistence:</b> Parameterized SQLite PDO storage layer</li>
         </ul>
       </details>
     </td>
   </tr>
 </table>
+<!-- PROJECTS:END -->
 
 <details>
-  <summary><b>Additional Interactive Browser &amp; Simulation Projects (3 Repositories)</b></summary>
+  <summary><b>How Featured Platforms Auto-Sync</b></summary>
   <br />
-  <table>
-    <tr>
-      <th>Project</th>
-      <th>Domain</th>
-      <th>Highlights</th>
-    </tr>
-    <tr>
-      <td><a href="https://github.com/pushpikaodisha/binaural-flow-studio"><b>Binaural Flow Studio</b></a></td>
-      <td>Web Audio API</td>
-      <td>Interactive browser audio synthesizer, HRTF 3D spatial sound &amp; cymatics visualization</td>
-    </tr>
-    <tr>
-      <td><a href="https://github.com/pushpikaodisha/chronoforge-4d"><b>ChronoForge 4D</b></a></td>
-      <td>Interactive Canvas</td>
-      <td>Browser 3D/4D geometric projection engine with responsive touch &amp; gyroscope controls</td>
-    </tr>
-    <tr>
-      <td><a href="https://github.com/pushpikaodisha/bioswarm-genesis"><b>BioSwarm Genesis</b></a></td>
-      <td>Simulation Engine</td>
-      <td>60 FPS browser simulation driven by lightweight neural-perceptron agents</td>
-    </tr>
-  </table>
+  <p>
+    Every 30 minutes (and via <code>repository_dispatch</code>), <a href="scripts/generate_profile_assets.py"><code>scripts/generate_profile_assets.py</code></a> queries the GitHub API for newly published or updated public repositories (prioritizing pinned or <code>featured</code>-tagged repos, then latest pushed projects) and updates both <code>assets/projects-*.svg</code> and the table above automatically.
+  </p>
 </details>
 
 ---

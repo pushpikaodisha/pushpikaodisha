@@ -1,10 +1,12 @@
-"""Generate multi-section animated Dark/Light SVGs for pushpikaodisha."""
+"""Generate multi-section animated SVGs and auto-sync dynamic projects in README.md."""
 
 from __future__ import annotations
 
+import base64
 import html
 import json
 import os
+import re
 import urllib.error
 import urllib.request
 from datetime import datetime, timezone
@@ -12,7 +14,9 @@ from datetime import datetime, timezone
 USERNAME = os.getenv("GITHUB_REPOSITORY_OWNER", "pushpikaodisha")
 TOKEN = os.getenv("PROFILE_GH_TOKEN") or os.getenv("GITHUB_TOKEN", "")
 EMAIL = "pushpikaodisha.contact@gmail.com"
-ASSETS_DIR = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "assets")
+ROOT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+ASSETS_DIR = os.path.join(ROOT_DIR, "assets")
+README_PATH = os.path.join(ROOT_DIR, "README.md")
 
 SANS_FONT = "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif"
 MONO_FONT = "ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
@@ -67,6 +71,132 @@ LANG_COLORS = {
     "Shell": "#89E051",
 }
 
+CURATED_PROJECTS = {
+    "neuroscribe-vault": {
+        "title": "NeuroScribe Studio",
+        "tag": "AI & SEARCH",
+        "short": "Semantic vault & FTS5 knowledge graph",
+        "desc": "Semantic Markdown knowledge vault and research workspace with SQLite FTS5 indexing and interactive graph exploration.",
+        "stack": ["Node.js", "SQLite FTS5", "Semantic Search"],
+        "icon": "graph",
+        "color": "accent",
+        "bullets": [
+            "<b>Core:</b> Node.js 22 runtime with zero external search bloat",
+            "<b>Indexing:</b> SQLite FTS5 full-text semantic query engine",
+            "<b>Visualization:</b> Force-directed document link graph",
+        ],
+    },
+    "apexguild-workflow": {
+        "title": "ApexGuild Workflow",
+        "tag": "ENTERPRISE SAAS",
+        "short": "Multi-tier approval & RBAC state engine",
+        "desc": "Enterprise multi-tier approval and state-machine web platform enforcing strict transition invariants and granular RBAC.",
+        "stack": ["PHP 8.3 MVC", "SQLite PDO", "RBAC"],
+        "icon": "flow",
+        "color": "accent_2",
+        "bullets": [
+            "<b>Backend:</b> PHP 8.3 strict OOP/MVC service architecture",
+            "<b>Security:</b> Role-based access control &amp; guarded state transitions",
+            "<b>Persistence:</b> Parameterized SQLite PDO storage layer",
+        ],
+    },
+    "omnimesh-telemetry": {
+        "title": "OmniMesh Telemetry",
+        "tag": "REAL-TIME WEB",
+        "short": "Live SSE edge device telemetry platform",
+        "desc": "Distributed edge telemetry and automation web orchestrator streaming live device events via Server-Sent Events (SSE).",
+        "stack": ["PHP 8.3 MVC", "SSE Streaming", "SQLite PDO"],
+        "icon": "stream",
+        "color": "emerald",
+        "bullets": [
+            "<b>Streaming:</b> Real-time SSE push pipeline to web dashboards",
+            "<b>Automation:</b> Rule-driven edge event orchestration in PHP 8.3",
+            "<b>Storage:</b> Lightweight SQLite PDO event persistence",
+        ],
+    },
+    "polyglot-forge": {
+        "title": "PolyglotForge",
+        "tag": "API & TESTING",
+        "short": "Zero-dep API simulator & chaos testing",
+        "desc": "Zero-dependency API contract simulator and chaos engineering workbench built on pure Node.js ESM for resilience testing.",
+        "stack": ["Node.js ESM", "API Simulation", "0 NPM Deps"],
+        "icon": "shield",
+        "color": "amber",
+        "bullets": [
+            "<b>Runtime:</b> Pure Node.js 22 ESM with 0 NPM dependencies",
+            "<b>Resilience:</b> Deterministic fault injection &amp; latency simulation",
+            "<b>Purpose:</b> Validates API contract behavior under failure modes",
+        ],
+    },
+    "chronoledger-vault": {
+        "title": "ChronoLedger Vault",
+        "tag": "AUDIT SECURITY",
+        "short": "RFC 6962 Merkle cryptographic notary",
+        "desc": "Tamper-evident document notary and cryptographic audit system implementing RFC 6962 Merkle Tree verification proofs.",
+        "stack": ["Node.js", "RFC 6962 Merkle", "0 NPM Deps"],
+        "icon": "lock",
+        "color": "violet",
+        "bullets": [
+            "<b>Cryptography:</b> RFC 6962 Merkle Tree inclusion &amp; consistency proofs",
+            "<b>Footprint:</b> Zero external NPM dependencies on Node.js 22",
+            "<b>Use Case:</b> Verifiable audit trails for critical records",
+        ],
+    },
+    "basic-website": {
+        "title": "Responsive Web Systems",
+        "tag": "WEB SYSTEMS",
+        "short": "Multi-theme modular web architecture",
+        "desc": "Modern responsive web application architecture with adaptive dark/light theming, modular CSS layouts, and accessible UI state.",
+        "stack": ["HTML5", "CSS3", "JavaScript ES6+"],
+        "icon": "ui",
+        "color": "accent",
+        "bullets": [
+            "<b>Frontend:</b> Semantic HTML5, modular CSS3, Vanilla ES6+",
+            "<b>UX:</b> Adaptive Dark/Light theme switching &amp; mobile layout",
+            "<b>Performance:</b> Clean zero-framework bundle delivery",
+        ],
+    },
+    "binaural-flow-studio": {
+        "title": "Binaural Flow Studio",
+        "tag": "WEB AUDIO APP",
+        "short": "Web Audio synthesizer & spatial sound",
+        "desc": "Interactive browser audio synthesizer and spatial sound visualization app powered by the Web Audio API.",
+        "stack": ["Web Audio API", "HTML5", "JavaScript"],
+        "icon": "stream",
+        "color": "accent",
+        "bullets": [
+            "<b>Audio Engine:</b> Real-time browser synthesis using Web Audio API",
+            "<b>Spatial:</b> HRTF 3D binaural panning &amp; acoustic visualization",
+        ],
+    },
+    "chronoforge-4d": {
+        "title": "ChronoForge 4D",
+        "tag": "INTERACTIVE UI",
+        "short": "Browser geometric projection engine",
+        "desc": "Browser-based 3D/4D geometric projection engine with responsive touch and mobile sensor controls.",
+        "stack": ["HTML5 Canvas", "JavaScript", "Geometry"],
+        "icon": "graph",
+        "color": "violet",
+        "bullets": [
+            "<b>Rendering:</b> Smooth HTML5 Canvas 2D/3D real-time projection",
+            "<b>Input:</b> Desktop controls &amp; mobile gyroscope integration",
+        ],
+    },
+    "bioswarm-genesis": {
+        "title": "BioSwarm Genesis",
+        "tag": "WEB SIMULATION",
+        "short": "60 FPS neural-perceptron web engine",
+        "desc": "Real-time 60 FPS browser simulation driven by lightweight neural-perceptron agents in Vanilla ES6+.",
+        "stack": ["JavaScript ES6+", "HTML5 Canvas", "AI Agents"],
+        "icon": "graph",
+        "color": "emerald",
+        "bullets": [
+            "<b>Simulation:</b> 60 FPS HTML5 Canvas agent ecosystem loop",
+            "<b>AI Logic:</b> Lightweight neural-perceptron decision engine",
+        ],
+    },
+}
+
 
 def gh_get(url: str) -> dict | list:
     """Execute a GitHub REST API GET request."""
@@ -102,10 +232,143 @@ def gh_graphql(query: str, variables: dict) -> dict | None:
         return None
 
 
+def truncate(text: str, limit: int) -> str:
+    """Shorten text cleanly to fit inside fixed-width SVG slots."""
+    clean = " ".join(text.split())
+    if len(clean) <= limit:
+        return clean
+    return clean[: max(limit - 1, 1)].rstrip() + "…"
+
+
+def fetch_repo_readme_summary(repo_name: str) -> tuple[str | None, str | None]:
+    """Fetch title and subtitle/description from a repo's README if GitHub description is empty."""
+    try:
+        data = gh_get(f"https://api.github.com/repos/{USERNAME}/{repo_name}/readme")
+        if not isinstance(data, dict) or not data.get("content"):
+            return None, None
+        raw = base64.b64decode(data["content"]).decode("utf-8", errors="ignore")
+        title = None
+        summary = None
+        for line in raw.splitlines():
+            s = line.strip()
+            if not s or s.startswith("![") or s.startswith("[![") or s.startswith("<"):
+                continue
+            if s.startswith("# ") and not title:
+                title = s[2:].strip()
+            elif s.startswith("### ") and not summary:
+                summary = s[4:].strip()
+                break
+            elif not s.startswith("#") and not summary:
+                summary = s
+                break
+        return title, summary
+    except (urllib.error.URLError, TimeoutError, ValueError):
+        return None, None
+
+
+def infer_visual_meta(name: str, desc: str, lang: str, topics: list[str]) -> tuple[str, str, str]:
+    """Pick tag, icon key, and theme color key for newly discovered public repositories."""
+    haystack = f"{name} {desc} {lang} {' '.join(topics)}".lower()
+    if any(k in haystack for k in ("ai", "llm", "rag", "ml", "agent", "neural", "search", "graph")):
+        return "AI & SOFTWARE", "graph", "emerald"
+    if any(k in haystack for k in ("api", "test", "cli", "sdk", "node", "express", "nest")):
+        return "BACKEND & API", "shield", "amber"
+    if any(k in haystack for k in ("crypto", "auth", "vault", "merkle", "security", "ledger")):
+        return "SECURITY & DATA", "lock", "violet"
+    if any(k in haystack for k in ("stream", "iot", "telemetry", "realtime", "socket", "sse")):
+        return "REAL-TIME SYSTEM", "stream", "emerald"
+    if lang.lower() == "php" or any(k in haystack for k in ("workflow", "saas", "admin", "laravel")):
+        return "WEB PLATFORM", "flow", "accent_2"
+    return "WEB APPLICATION", "ui", "accent"
+
+
+def build_dynamic_projects(non_forks: list[dict], pinned_names: list[str]) -> list[dict]:
+    """Select top 6 live public projects: featured/pinned first, then newest pushed active repos."""
+    candidates = []
+    for repo in non_forks:
+        name = repo.get("name", "")
+        topics = [t.lower() for t in (repo.get("topics") or [])]
+        if "ignore" in topics or "archived" in topics:
+            continue
+        size = int(repo.get("size", 0))
+        has_desc = bool((repo.get("description") or "").strip())
+        # Skip empty placeholder repos unless explicitly marked featured/pinned
+        if size < 5 and not has_desc and "featured" not in topics and name.lower() not in pinned_names:
+            continue
+        candidates.append(repo)
+
+    def sort_key(r: dict) -> tuple[int, int, str]:
+        rname = r.get("name", "").lower()
+        topics = [t.lower() for t in (r.get("topics") or [])]
+        is_featured = 1 if ("featured" in topics or rname in pinned_names) else 0
+        pushed = r.get("pushed_at") or ""
+        return (is_featured, 1 if r.get("stargazers_count", 0) > 0 else 0, pushed)
+
+    ordered = sorted(candidates, key=sort_key, reverse=True)[:6]
+
+    resolved = []
+    for repo in ordered:
+        rname = repo.get("name", "")
+        key = rname.lower()
+        lang = repo.get("language") or "Web"
+        topics = repo.get("topics") or []
+        pushed_date = (repo.get("pushed_at") or "")[:10] or "Active"
+        url = repo.get("html_url") or f"https://github.com/{USERNAME}/{rname}"
+        curated = CURATED_PROJECTS.get(key)
+
+        if curated:
+            resolved.append({
+                "repo": rname,
+                "url": url,
+                "title": curated["title"],
+                "tag": curated["tag"],
+                "short": curated["short"],
+                "desc": curated["desc"],
+                "stack": curated["stack"],
+                "icon": curated["icon"],
+                "color": curated["color"],
+                "bullets": curated.get("bullets", []),
+                "updated": pushed_date,
+                "lang": lang,
+            })
+        else:
+            gh_desc = (repo.get("description") or "").strip()
+            readme_title, readme_summary = (None, None)
+            if not gh_desc:
+                readme_title, readme_summary = fetch_repo_readme_summary(rname)
+            pretty_title = readme_title or rname.replace("-", " ").replace("_", " ").title()
+            full_desc = gh_desc or readme_summary or f"Public {lang} software project hosted on GitHub."
+            tag, icon_key, color_key = infer_visual_meta(rname, full_desc, lang, topics)
+            stack_tags = [lang] + [t.replace("-", " ").title() for t in topics[:2]]
+            if len(stack_tags) < 2:
+                stack_tags.append("GitHub")
+
+            resolved.append({
+                "repo": rname,
+                "url": url,
+                "title": truncate(pretty_title, 22),
+                "tag": tag,
+                "short": truncate(full_desc, 40),
+                "desc": full_desc,
+                "stack": stack_tags[:3],
+                "icon": icon_key,
+                "color": color_key,
+                "bullets": [
+                    f"<b>Repository:</b> <code>{html.escape(rname)}</code>",
+                    f"<b>Primary Language:</b> {html.escape(lang)}",
+                    f"<b>Last Updated:</b> {html.escape(pushed_date)}",
+                ],
+                "updated": pushed_date,
+                "lang": lang,
+            })
+
+    return resolved
+
+
 def fetch_metrics() -> dict:
-    """Fetch public profile, repository footprint, language, and activity metrics."""
+    """Fetch public profile, live projects, repository footprint, and activity metrics."""
     user = gh_get(f"https://api.github.com/users/{USERNAME}")
-    repos = gh_get(f"https://api.github.com/users/{USERNAME}/repos?per_page=100&type=owner")
+    repos = gh_get(f"https://api.github.com/users/{USERNAME}/repos?sort=pushed&per_page=100&type=owner")
 
     non_forks = [
         r for r in repos if not r.get("fork") and r.get("name", "").lower() != USERNAME.lower()
@@ -151,7 +414,6 @@ def fetch_metrics() -> dict:
         for r in top_repos
     ]
 
-    # Public push activity pulse across last 12 buckets (using repo pushed_at / events fallback)
     pulse = [2, 4, 3, 6, 5, 8, 7, 10, 9, 12, 11, 14]
     try:
         events = gh_get(f"https://api.github.com/users/{USERNAME}/events/public?per_page=60")
@@ -166,9 +428,15 @@ def fetch_metrics() -> dict:
         pass
 
     contributions_year = None
+    pinned_names: list[str] = []
     gql = """
     query($login: String!) {
       user(login: $login) {
+        pinnedItems(first: 6, types: REPOSITORY) {
+          nodes {
+            ... on Repository { name }
+          }
+        }
         contributionsCollection {
           contributionCalendar {
             totalContributions
@@ -179,12 +447,17 @@ def fetch_metrics() -> dict:
     """
     gql_data = gh_graphql(gql, {"login": USERNAME})
     if gql_data and gql_data.get("user"):
+        u_obj = gql_data["user"]
         contributions_year = (
-            gql_data["user"]
-            .get("contributionsCollection", {})
+            u_obj.get("contributionsCollection", {})
             .get("contributionCalendar", {})
             .get("totalContributions")
         )
+        for node in (u_obj.get("pinnedItems") or {}).get("nodes") or []:
+            if node and node.get("name"):
+                pinned_names.append(node["name"].lower())
+
+    featured_projects = build_dynamic_projects(non_forks, pinned_names)
 
     return {
         "public_repos": int(user.get("public_repos", len(repos))),
@@ -195,6 +468,7 @@ def fetch_metrics() -> dict:
         "top_langs": top_langs,
         "repo_sizes": repo_sizes,
         "pulse": pulse,
+        "featured_projects": featured_projects,
         "total_kb": round(total_bytes / 1024),
         "updated": datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC"),
     }
@@ -264,7 +538,6 @@ def render_hero(t: dict) -> str:
   <rect width="{w}" height="{h}" rx="16" fill="url(#heroBg)" stroke="{c_border}" stroke-width="1.5"/>
   <rect x="1" y="1" width="{w - 2}" height="{h - 2}" rx="15" fill="url(#subtleGrid)"/>
 
-  <!-- Left Identity Column -->
   <rect x="40" y="38" width="24" height="3.5" rx="1.75" fill="url(#brandGrad)"/>
   <text x="74" y="43" font-family="{MONO_FONT}" font-size="10.5" font-weight="600" letter-spacing="1.2" fill="{c_accent}">SOFTWARE · WEB APPS · AI SYSTEMS</text>
 
@@ -280,11 +553,9 @@ def render_hero(t: dict) -> str:
   <text x="58" y="260" font-family="{MONO_FONT}" font-size="10.5" fill="{c_sub}">Open to Software, Web &amp; AI Engineering Roles</text>
   <text x="520" y="260" text-anchor="end" font-family="{MONO_FONT}" font-size="10.5" fill="{c_muted}">Sri Lanka · @{esc_user}</text>
 
-  <!-- Right System Architecture Header + Sparkline -->
   <text x="552" y="38" font-family="{MONO_FONT}" font-size="9.5" letter-spacing="1" fill="{c_muted}">REQUEST PIPELINE</text>
   <path d="M 800 36 L 814 31 L 828 38 L 842 28 L 856 35 L 870 25 L 884 32 L 898 26 L 914 30" fill="none" stroke="{c_emerald}" stroke-width="1.6" class="wave"/>
 
-  <!-- Animated Bus Wires + 4 Architecture Nodes -->
   <path d="M 726 92 H 742 M 829 130 V 141 H 639 V 152 M 726 190 H 742" fill="none" stroke="{c_border_hi}" stroke-width="1.5"/>
   <path class="flow" d="M 726 92 H 742 M 829 130 V 141 H 639 V 152 M 726 190 H 742" fill="none" stroke="{c_accent}" stroke-width="1.7"/>
   {"".join(node_svg)}
@@ -359,8 +630,8 @@ def render_lifecycle(t: dict) -> str:
 """
 
 
-def render_projects(t: dict) -> str:
-    """Section 3: 3x2 Visual Showcase of Flagship Software, Web & AI Systems (960x312)."""
+def render_projects(t: dict, projects: list[dict], updated: str) -> str:
+    """Section 3: Dynamic 3x2 Showcase of Latest/Featured Public Repos (960x312)."""
     w, h = 960, 312
     c_bg1 = t["bg_1"]
     c_bg2 = t["bg_2"]
@@ -371,13 +642,7 @@ def render_projects(t: dict) -> str:
     c_text = t["text"]
     c_sub = t["subtext"]
     c_muted = t["muted"]
-    c_accent = t["accent"]
-    c_accent_2 = t["accent_2"]
-    c_emerald = t["emerald"]
-    c_amber = t["amber"]
-    c_violet = t["violet"]
 
-    # Custom geometric vector icon paths (placed inside 24x24 box)
     icons = {
         "graph": '<circle cx="6" cy="18" r="2.5"/><circle cx="18" cy="18" r="2.5"/><circle cx="12" cy="6" r="2.5"/><path d="M7.5 16L11 8M16.5 16L13 8M8.5 18H15.5"/>',
         "flow": '<rect x="3" y="4" width="7" height="5" rx="1.5"/><rect x="14" y="15" width="7" height="5" rx="1.5"/><path d="M10 6.5H16V15M14 13L16 15L18 13"/>',
@@ -387,35 +652,36 @@ def render_projects(t: dict) -> str:
         "ui": '<rect x="3" y="4" width="18" height="15" rx="2"/><path d="M3 9H21M9 9V19"/>',
     }
 
-    items = [
-        ("01 · AI &amp; SEARCH", "NeuroScribe Studio", "Semantic vault &amp; FTS5 knowledge graph", "Node.js · SQLite FTS5", c_accent, "graph"),
-        ("02 · ENTERPRISE SAAS", "ApexGuild Workflow", "Multi-tier approval &amp; RBAC state engine", "PHP 8.3 MVC · RBAC", c_accent_2, "flow"),
-        ("03 · REAL-TIME WEB", "OmniMesh Telemetry", "Live SSE edge device telemetry platform", "PHP 8.3 · SSE · PDO", c_emerald, "stream"),
-        ("04 · API &amp; TESTING", "PolyglotForge", "Zero-dep API simulator &amp; chaos testing", "Node.js ESM · 0 Deps", c_amber, "shield"),
-        ("05 · AUDIT SECURITY", "ChronoLedger Vault", "RFC 6962 Merkle cryptographic notary", "Node.js · Merkle Tree", c_violet, "lock"),
-        ("06 · WEB SYSTEMS", "Responsive Web UI", "Multi-theme modular web architecture", "HTML5 · CSS3 · ES6+", c_accent, "ui"),
-    ]
-
     cards = []
-    for idx, (tag, title, desc, stack, col, icon_key) in enumerate(items):
+    for idx, proj in enumerate(projects[:6]):
         col_i = idx % 3
         row_i = idx // 3
         x = 28 + col_i * 308
         y = 52 + row_i * 124
+        col = t.get(proj["color"], t["accent"])
+        icon_svg = icons.get(proj["icon"], icons["ui"])
+        tag = html.escape(f"{idx + 1:02d} · {proj['tag']}")
+        title = html.escape(truncate(proj["title"], 22))
+        desc = html.escape(truncate(proj["short"], 40))
+        stack_str = html.escape(truncate(" · ".join(proj["stack"][:2]), 26))
+        pushed = html.escape(proj["updated"])
+
         cards.append(
             f'<rect x="{x}" y="{y}" width="288" height="110" rx="11" fill="{c_card}" stroke="{c_border_hi}" stroke-width="1.2"/>'
             f'<rect x="{x}" y="{y}" width="288" height="2.5" rx="1.2" fill="{col}"/>'
             f'<rect x="{x + 14}" y="{y + 14}" width="30" height="30" rx="7" fill="{c_card_alt}" stroke="{c_border}" stroke-width="1"/>'
-            f'<g transform="translate({x + 17}, {y + 17})" fill="none" stroke="{col}" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">{icons[icon_key]}</g>'
+            f'<g transform="translate({x + 17}, {y + 17})" fill="none" stroke="{col}" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">{icon_svg}</g>'
             f'<text x="{x + 54}" y="{y + 26}" font-family="{MONO_FONT}" font-size="9" font-weight="700" letter-spacing="0.5" fill="{col}">{tag}</text>'
             f'<circle cx="{x + 271}" cy="{y + 22}" r="3" fill="{col}" class="dot"/>'
             f'<text x="{x + 54}" y="{y + 44}" font-family="{SANS_FONT}" font-size="14.5" font-weight="700" fill="{c_text}">{title}</text>'
             f'<text x="{x + 14}" y="{y + 68}" font-family="{SANS_FONT}" font-size="11.5" fill="{c_sub}">{desc}</text>'
-            f'<rect x="{x + 14}" y="{y + 80}" width="172" height="20" rx="5" fill="{c_card_alt}" stroke="{c_border}" stroke-width="1"/>'
-            f'<text x="{x + 22}" y="{y + 93.5}" font-family="{MONO_FONT}" font-size="9.5" fill="{c_muted}">{stack}</text>'
+            f'<rect x="{x + 14}" y="{y + 80}" width="182" height="20" rx="5" fill="{c_card_alt}" stroke="{c_border}" stroke-width="1"/>'
+            f'<text x="{x + 22}" y="{y + 93.5}" font-family="{MONO_FONT}" font-size="9.5" fill="{c_muted}">{stack_str}</text>'
+            f'<text x="{x + 274}" y="{y + 93.5}" text-anchor="end" font-family="{MONO_FONT}" font-size="9" fill="{c_muted}">{pushed}</text>'
         )
 
-    return f"""<svg xmlns="http://www.w3.org/2000/svg" width="{w}" height="{h}" viewBox="0 0 {w} {h}" role="img" aria-label="Featured Software, Web Applications and AI Platforms">
+    esc_upd = html.escape(updated)
+    return f"""<svg xmlns="http://www.w3.org/2000/svg" width="{w}" height="{h}" viewBox="0 0 {w} {h}" role="img" aria-label="Auto-Synced Public Projects Showcase">
   <defs>
     <linearGradient id="projBg" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="{c_bg1}"/>
@@ -428,14 +694,15 @@ def render_projects(t: dict) -> str:
     @media(prefers-reduced-motion:reduce){{.dot{{animation:none}}}}
   </style>
   <rect width="{w}" height="{h}" rx="16" fill="url(#projBg)" stroke="{c_border}" stroke-width="1.5"/>
-  <text x="28" y="34" font-family="{MONO_FONT}" font-size="10.5" font-weight="600" letter-spacing="1.1" fill="{c_muted}">FLAGSHIP SOFTWARE, WEB &amp; AI PLATFORMS</text>
+  <text x="28" y="34" font-family="{MONO_FONT}" font-size="10.5" font-weight="600" letter-spacing="1.1" fill="{c_muted}">LATEST PUBLIC PLATFORMS · AUTO-SYNCED</text>
+  <text x="932" y="34" text-anchor="end" font-family="{MONO_FONT}" font-size="10" fill="{c_muted}">LIVE REPO FEED · {esc_upd}</text>
   {"".join(cards)}
 </svg>
 """
 
 
 def render_stack(t: dict) -> str:
-    """Section 4: 4-Column Animated Vector Tech & AI Stack Matrix (960x235)."""
+    """Section 4: 4-Column Vector Tech & AI Stack Matrix (960x235)."""
     w, h = 960, 235
     c_bg1 = t["bg_1"]
     c_bg2 = t["bg_2"]
@@ -443,7 +710,6 @@ def render_stack(t: dict) -> str:
     c_card_alt = t["card_alt"]
     c_border = t["border"]
     c_border_hi = t["border_hi"]
-    c_text = t["text"]
     c_sub = t["subtext"]
     c_muted = t["muted"]
     c_accent = t["accent"]
@@ -498,7 +764,6 @@ def render_dashboard(t: dict, m: dict) -> str:
     c_bg2 = t["bg_2"]
     c_card = t["card"]
     c_border = t["border"]
-    c_border_hi = t["border_hi"]
     c_text = t["text"]
     c_sub = t["subtext"]
     c_muted = t["muted"]
@@ -530,7 +795,6 @@ def render_dashboard(t: dict, m: dict) -> str:
             f'<text x="{kx + 14}" y="{ky + 44}" font-family="{SANS_FONT}" font-size="20" font-weight="700" fill="{c_text}">{html.escape(val)}</text>'
         )
 
-    # Bottom-Left: Top Repositories by Code Size (KB)
     max_kb = max((sz for _, sz, _ in m["repo_sizes"]), default=1)
     repo_bars = []
     for idx, (rname, rkb, rlang) in enumerate(m["repo_sizes"]):
@@ -545,7 +809,6 @@ def render_dashboard(t: dict, m: dict) -> str:
             f'<text x="454" y="{ry}" text-anchor="end" font-family="{MONO_FONT}" font-size="10" fill="{c_muted}">{rkb} KB</text>'
         )
 
-    # Bottom-Right: Language Spectrum + Recent Activity Pulse Sparkline
     bar_x, bar_y, bar_w = 504, 152, 418
     segments = []
     legend = []
@@ -568,7 +831,6 @@ def render_dashboard(t: dict, m: dict) -> str:
             f'<text x="{lx + 196}" y="{ly}" text-anchor="end" font-family="{MONO_FONT}" font-size="11" fill="{c_muted}">{pct:.1f}%</text>'
         )
 
-    # Sparkline from live pulse buckets
     max_p = max(m["pulse"]) or 1
     spark_pts = []
     for idx, val in enumerate(m["pulse"]):
@@ -599,12 +861,10 @@ def render_dashboard(t: dict, m: dict) -> str:
   <text x="932" y="34" text-anchor="end" font-family="{MONO_FONT}" font-size="10" fill="{c_muted}">SYNCED {updated}</text>
   {"".join(kpi_svg)}
 
-  <!-- Bottom-Left Panel: Top Repos -->
   <rect x="28" y="122" width="442" height="158" rx="11" fill="{c_card}" stroke="{c_border}" stroke-width="1.2"/>
   <text x="42" y="142" font-family="{MONO_FONT}" font-size="9.5" font-weight="600" letter-spacing="0.8" fill="{c_muted}">TOP REPOSITORIES BY FOOTPRINT</text>
   {"".join(repo_bars)}
 
-  <!-- Bottom-Right Panel: Languages & Activity Pulse -->
   <rect x="488" y="122" width="444" height="158" rx="11" fill="{c_card}" stroke="{c_border}" stroke-width="1.2"/>
   <text x="504" y="142" font-family="{MONO_FONT}" font-size="9.5" font-weight="600" letter-spacing="0.8" fill="{c_muted}">LANGUAGE DISTRIBUTION (BY CODE BYTES)</text>
   <rect x="{bar_x}" y="{bar_y}" width="{bar_w}" height="10" rx="5" fill="{c_bar_bg}"/>
@@ -655,6 +915,62 @@ def render_footer(t: dict) -> str:
 """
 
 
+def build_projects_table_html(projects: list[dict]) -> str:
+    """Build the 2-column HTML project showcase table synced into README.md."""
+    rows = []
+    for i in range(0, len(projects), 2):
+        cells = []
+        for j in (0, 1):
+            if i + j >= len(projects):
+                cells.append('<td width="50%" valign="top"></td>')
+                continue
+            p = projects[i + j]
+            num = f"{i + j + 1:02d}"
+            title = html.escape(p["title"])
+            url = html.escape(p["url"])
+            desc = html.escape(p["desc"])
+            tags = " ".join(f"<code>{html.escape(s)}</code>" for s in p["stack"])
+            details_block = ""
+            if p["bullets"]:
+                bullets = "".join(f"\n          <li>{b}</li>" for b in p["bullets"])
+                details_block = f"""
+      <details>
+        <summary><sub><b>Architecture &amp; Details</b> · Updated {html.escape(p['updated'])}</sub></summary>
+        <br />
+        <ul>{bullets}
+        </ul>
+      </details>"""
+            cells.append(
+                f"""    <td width="50%" valign="top">
+      <h4>{num} · <a href="{url}">{title} ↗</a></h4>
+      <p>{desc}</p>
+      <p>{tags}</p>{details_block}
+    </td>"""
+            )
+        rows.append("  <tr>\n" + "\n".join(cells) + "\n  </tr>")
+    return "<table>\n" + "\n".join(rows) + "\n</table>"
+
+
+def sync_readme_projects(projects: list[dict]) -> None:
+    """Update the <!-- PROJECTS:START --> ... <!-- PROJECTS:END --> block in README.md."""
+    if not os.path.exists(README_PATH):
+        return
+    with open(README_PATH, "r", encoding="utf-8") as f:
+        original = f.read()
+
+    pattern = re.compile(r"<!-- PROJECTS:START -->.*?<!-- PROJECTS:END -->", re.DOTALL)
+    if not pattern.search(original):
+        return
+
+    table_html = build_projects_table_html(projects)
+    replacement = f"<!-- PROJECTS:START -->\n{table_html}\n<!-- PROJECTS:END -->"
+    updated = pattern.sub(replacement, original)
+    if updated != original:
+        with open(README_PATH, "w", encoding="utf-8", newline="\n") as f:
+            f.write(updated)
+        print("Updated README.md dynamic projects block")
+
+
 def main() -> None:
     os.makedirs(ASSETS_DIR, exist_ok=True)
     metrics = fetch_metrics()
@@ -663,7 +979,7 @@ def main() -> None:
     for mode, theme in THEMES.items():
         outputs[f"hero-{mode}.svg"] = render_hero(theme)
         outputs[f"lifecycle-{mode}.svg"] = render_lifecycle(theme)
-        outputs[f"projects-{mode}.svg"] = render_projects(theme)
+        outputs[f"projects-{mode}.svg"] = render_projects(theme, metrics["featured_projects"], metrics["updated"])
         outputs[f"stack-{mode}.svg"] = render_stack(theme)
         outputs[f"dashboard-{mode}.svg"] = render_dashboard(theme, metrics)
         outputs[f"footer-{mode}.svg"] = render_footer(theme)
@@ -673,6 +989,8 @@ def main() -> None:
         with open(path, "w", encoding="utf-8", newline="\n") as f:
             f.write(content)
         print(f"Generated {filename}")
+
+    sync_readme_projects(metrics["featured_projects"])
 
 
 if __name__ == "__main__":
