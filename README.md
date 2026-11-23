@@ -7,129 +7,184 @@
 </p>
 
 <p align="center">
-  <a href="mailto:pushpikaodisha.contact@gmail.com"><strong>Email ↗</strong></a>
+  <a href="mailto:pushpikaodisha.contact@gmail.com"><strong>Contact ↗</strong></a>
   &nbsp; · &nbsp;
   <a href="https://github.com/pushpikaodisha?tab=repositories"><strong>Repositories ↗</strong></a>
   &nbsp; · &nbsp;
-  <a href="#featured-software--web-platforms"><strong>Projects</strong></a>
+  <a href="#engineering-workflow"><strong>Workflow</strong></a>
   &nbsp; · &nbsp;
-  <a href="#technology-stack"><strong>Tech Stack</strong></a>
+  <a href="#featured-platforms"><strong>Platforms</strong></a>
   &nbsp; · &nbsp;
-  <a href="#engineering-dashboard"><strong>Metrics</strong></a>
+  <a href="#technology-matrix"><strong>Tech Stack</strong></a>
   &nbsp; · &nbsp;
-  <a href="#connect"><strong>Contact</strong></a>
+  <a href="#github-observatory"><strong>Metrics</strong></a>
 </p>
 
 ---
 
 ### About
 
-I'm **Pushpika Odisha**, a Software Engineer from **Sri Lanka** focused on building **modern web applications, scalable backend software, and practical AI-integrated systems**. I design clean, maintainable architectures with strong API contracts, real-time data pipelines, and reliable security boundaries.
-
-| Focus Area | Engineering Scope |
-| :--- | :--- |
-| **Web Applications** | Responsive multi-theme interfaces, interactive dashboards, real-time Server-Sent Events (SSE) |
-| **Backend &amp; Software** | Node.js (ESM) services, PHP 8.3 OOP/MVC platforms, state machines, role-based access control |
-| **AI &amp; Knowledge Systems** | Semantic full-text search (SQLite FTS5), knowledge graphs, LLM API integration &amp; automation |
-| **Quality &amp; Security** | Contract testing, chaos/fault-injection workbenches, tamper-evident Merkle audit trails |
+I'm **Pushpika Odisha**, a Software Engineer from **Sri Lanka** specializing in **modern web applications, backend software architecture, and practical AI-integrated systems**. I focus on clean modular design, strong API contracts, real-time data delivery, and dependable security boundaries without unnecessary bloat.
 
 ---
 
-### Featured Software &amp; Web Platforms
+### Engineering Workflow
+
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="assets/lifecycle-dark.svg" />
+    <source media="(prefers-color-scheme: light)" srcset="assets/lifecycle-light.svg" />
+    <img src="assets/lifecycle-dark.svg" width="100%" alt="4-Stage Software and AI Engineering Lifecycle" />
+  </picture>
+</p>
+
+---
+
+### Featured Platforms
+
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="assets/projects-dark.svg" />
+    <source media="(prefers-color-scheme: light)" srcset="assets/projects-light.svg" />
+    <img src="assets/projects-dark.svg" width="100%" alt="Flagship Software, Web Applications and AI Platforms" />
+  </picture>
+</p>
 
 <table>
   <tr>
     <td width="50%" valign="top">
-      <p><sub><code>01 · KNOWLEDGE &amp; AI WORKSPACE</code></sub></p>
-      <h4><a href="https://github.com/pushpikaodisha/neuroscribe-vault">NeuroScribe Studio</a></h4>
-      <p>Semantic Markdown knowledge vault and research web workspace featuring SQLite FTS5 full-text search indexing and interactive relationship graphs.</p>
-      <p><code>Node.js</code> <code>SQLite FTS5</code> <code>Semantic Search</code></p>
+      <h4>01 · <a href="https://github.com/pushpikaodisha/neuroscribe-vault">NeuroScribe Studio ↗</a></h4>
+      <p>Semantic Markdown knowledge vault and research workspace with SQLite FTS5 indexing and interactive graph exploration.</p>
+      <details>
+        <summary><sub><b>Architecture Deep-Dive</b></sub></summary>
+        <br />
+        <ul>
+          <li><b>Core:</b> Node.js 22 runtime with zero external search bloat</li>
+          <li><b>Indexing:</b> SQLite FTS5 full-text semantic query engine</li>
+          <li><b>Visualization:</b> Force-directed document link graph</li>
+        </ul>
+      </details>
     </td>
     <td width="50%" valign="top">
-      <p><sub><code>02 · ENTERPRISE SAAS WORKFLOW</code></sub></p>
-      <h4><a href="https://github.com/pushpikaodisha/apexguild-workflow">ApexGuild Workflow</a></h4>
-      <p>Enterprise multi-tier approval and workflow management web platform enforcing deterministic state transitions and granular RBAC permissions.</p>
-      <p><code>PHP 8.3 MVC</code> <code>SQLite PDO</code> <code>RBAC</code></p>
+      <h4>02 · <a href="https://github.com/pushpikaodisha/apexguild-workflow">ApexGuild Workflow ↗</a></h4>
+      <p>Enterprise multi-tier approval and state-machine web platform enforcing strict transition invariants and granular RBAC.</p>
+      <details>
+        <summary><sub><b>Architecture Deep-Dive</b></sub></summary>
+        <br />
+        <ul>
+          <li><b>Backend:</b> PHP 8.3 strict OOP/MVC service architecture</li>
+          <li><b>Security:</b> Role-based access control &amp; guarded state transitions</li>
+          <li><b>Persistence:</b> Parameterized SQLite PDO storage layer</li>
+        </ul>
+      </details>
     </td>
   </tr>
   <tr>
     <td width="50%" valign="top">
-      <p><sub><code>03 · REAL-TIME WEB PLATFORM</code></sub></p>
-      <h4><a href="https://github.com/pushpikaodisha/omnimesh-telemetry">OmniMesh Telemetry</a></h4>
-      <p>Distributed telemetry and automation web orchestrator streaming live device events to browser dashboards via Server-Sent Events (SSE).</p>
-      <p><code>PHP 8.3 MVC</code> <code>SSE Streaming</code> <code>Automation</code></p>
+      <h4>03 · <a href="https://github.com/pushpikaodisha/omnimesh-telemetry">OmniMesh Telemetry ↗</a></h4>
+      <p>Distributed edge telemetry and automation web orchestrator streaming live device events via Server-Sent Events (SSE).</p>
+      <details>
+        <summary><sub><b>Architecture Deep-Dive</b></sub></summary>
+        <br />
+        <ul>
+          <li><b>Streaming:</b> Real-time SSE push pipeline to web dashboards</li>
+          <li><b>Automation:</b> Rule-driven edge event orchestration in PHP 8.3</li>
+          <li><b>Storage:</b> Lightweight SQLite PDO event persistence</li>
+        </ul>
+      </details>
     </td>
     <td width="50%" valign="top">
-      <p><sub><code>04 · API &amp; TESTING SOFTWARE</code></sub></p>
-      <h4><a href="https://github.com/pushpikaodisha/polyglot-forge">PolyglotForge</a></h4>
-      <p>API contract simulator and resilience testing workbench built on pure Node.js ESM to validate backend reliability under latency and fault scenarios.</p>
-      <p><code>Node.js ESM</code> <code>API Simulation</code> <code>Testing</code></p>
+      <h4>04 · <a href="https://github.com/pushpikaodisha/polyglot-forge">PolyglotForge ↗</a></h4>
+      <p>Zero-dependency API contract simulator and chaos engineering workbench built on pure Node.js ESM for resilience testing.</p>
+      <details>
+        <summary><sub><b>Architecture Deep-Dive</b></sub></summary>
+        <br />
+        <ul>
+          <li><b>Runtime:</b> Pure Node.js 22 ESM with 0 NPM dependencies</li>
+          <li><b>Resilience:</b> Deterministic fault injection &amp; latency simulation</li>
+          <li><b>Purpose:</b> Validates API contract behavior under failure modes</li>
+        </ul>
+      </details>
     </td>
   </tr>
   <tr>
     <td width="50%" valign="top">
-      <p><sub><code>05 · DOCUMENT SECURITY SOFTWARE</code></sub></p>
-      <h4><a href="https://github.com/pushpikaodisha/chronoledger-vault">ChronoLedger Vault</a></h4>
-      <p>Tamper-evident document notary and cryptographic verification engine implementing RFC 6962 Merkle Tree proofs with zero external dependencies.</p>
-      <p><code>Node.js</code> <code>Merkle Audit</code> <code>Verification</code></p>
+      <h4>05 · <a href="https://github.com/pushpikaodisha/chronoledger-vault">ChronoLedger Vault ↗</a></h4>
+      <p>Tamper-evident document notary and cryptographic audit system implementing RFC 6962 Merkle Tree verification proofs.</p>
+      <details>
+        <summary><sub><b>Architecture Deep-Dive</b></sub></summary>
+        <br />
+        <ul>
+          <li><b>Cryptography:</b> RFC 6962 Merkle Tree inclusion &amp; consistency proofs</li>
+          <li><b>Footprint:</b> Zero external NPM dependencies on Node.js 22</li>
+          <li><b>Use Case:</b> Verifiable audit trails for critical records</li>
+        </ul>
+      </details>
     </td>
     <td width="50%" valign="top">
-      <p><sub><code>06 · MODERN WEB ARCHITECTURE</code></sub></p>
-      <h4><a href="https://github.com/pushpikaodisha/basic-website">Responsive Web Systems</a></h4>
-      <p>Clean, responsive web application architecture featuring adaptive dark/light theming, modular CSS layouts, and interactive UI components.</p>
-      <p><code>HTML5</code> <code>CSS3</code> <code>JavaScript ES6+</code></p>
+      <h4>06 · <a href="https://github.com/pushpikaodisha/basic-website">Responsive Web Systems ↗</a></h4>
+      <p>Modern responsive web application architecture with adaptive dark/light theming, modular CSS layouts, and accessible UI state.</p>
+      <details>
+        <summary><sub><b>Architecture Deep-Dive</b></sub></summary>
+        <br />
+        <ul>
+          <li><b>Frontend:</b> Semantic HTML5, modular CSS3, Vanilla ES6+</li>
+          <li><b>UX:</b> Adaptive Dark/Light theme switching &amp; mobile layout</li>
+          <li><b>Performance:</b> Clean zero-framework bundle delivery</li>
+        </ul>
+      </details>
     </td>
   </tr>
 </table>
 
 <details>
-  <summary><b>Additional Web &amp; Browser Engineering Projects</b></summary>
+  <summary><b>Additional Interactive Browser &amp; Simulation Projects (3 Repositories)</b></summary>
   <br />
   <table>
     <tr>
       <th>Project</th>
-      <th>Focus</th>
-      <th>Summary</th>
+      <th>Domain</th>
+      <th>Highlights</th>
     </tr>
     <tr>
       <td><a href="https://github.com/pushpikaodisha/binaural-flow-studio"><b>Binaural Flow Studio</b></a></td>
       <td>Web Audio API</td>
-      <td>Interactive browser audio synthesizer and spatial sound visualization app</td>
+      <td>Interactive browser audio synthesizer, HRTF 3D spatial sound &amp; cymatics visualization</td>
     </tr>
     <tr>
       <td><a href="https://github.com/pushpikaodisha/chronoforge-4d"><b>ChronoForge 4D</b></a></td>
       <td>Interactive Canvas</td>
-      <td>Browser-based 3D/4D geometric projection engine with responsive touch &amp; sensor input</td>
+      <td>Browser 3D/4D geometric projection engine with responsive touch &amp; gyroscope controls</td>
     </tr>
     <tr>
       <td><a href="https://github.com/pushpikaodisha/bioswarm-genesis"><b>BioSwarm Genesis</b></a></td>
       <td>Simulation Engine</td>
-      <td>Real-time 60 FPS browser simulation driven by lightweight neural-perceptron agents</td>
+      <td>60 FPS browser simulation driven by lightweight neural-perceptron agents</td>
     </tr>
   </table>
 </details>
 
 ---
 
-### Technology Stack
+### Technology Matrix
 
-| Layer | Technologies &amp; Capabilities |
-| :--- | :--- |
-| **Web &amp; Frontend** | JavaScript (ES6+), HTML5, CSS3, Responsive UI Architecture, Server-Sent Events (SSE), Web APIs |
-| **Backend &amp; Software** | Node.js (ESM), PHP 8.3 (OOP / MVC), RESTful APIs, State Machines, Authentication &amp; RBAC |
-| **AI &amp; Intelligent Systems** | LLM API Integration, Prompt &amp; Context Engineering, Semantic Search (FTS5), Workflow Automation |
-| **Databases &amp; Data** | SQLite (PDO / FTS5), Relational Data Modeling, Audit Logging &amp; Integrity Proofs |
-| **Tooling &amp; Workflow** | Git, GitHub Actions, Automated Testing, Zero-Dependency Software Design |
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="assets/stack-dark.svg" />
+    <source media="(prefers-color-scheme: light)" srcset="assets/stack-light.svg" />
+    <img src="assets/stack-dark.svg" width="100%" alt="Technology and AI Engineering Stack Matrix" />
+  </picture>
+</p>
 
 ---
 
-### Engineering Dashboard
+### GitHub Observatory
 
 <p align="center">
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="assets/dashboard-dark.svg" />
     <source media="(prefers-color-scheme: light)" srcset="assets/dashboard-light.svg" />
-    <img src="assets/dashboard-dark.svg" width="100%" alt="Core Engineering Focus and Live GitHub Metrics" />
+    <img src="assets/dashboard-dark.svg" width="100%" alt="Live GitHub Engineering Observatory" />
   </picture>
 </p>
 
@@ -147,7 +202,7 @@ I'm **Pushpika Odisha**, a Software Engineer from **Sri Lanka** focused on build
     <picture>
       <source media="(prefers-color-scheme: dark)" srcset="assets/footer-dark.svg" />
       <source media="(prefers-color-scheme: light)" srcset="assets/footer-light.svg" />
-      <img src="assets/footer-dark.svg" width="100%" alt="Available for Software Engineering, Web Application, and AI Systems projects" />
+      <img src="assets/footer-dark.svg" width="100%" alt="Available for Software Engineering, Web Application, and AI Systems roles" />
     </picture>
   </a>
 </p>
