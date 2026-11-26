@@ -54,46 +54,44 @@ I'm **Pushpika Odisha**, a Software Engineer from **Sri Lanka** specializing in 
 <table>
   <tr>
     <td width="50%" valign="top">
-      <h4>01 · <a href="https://github.com/pushpikaodisha/neuroscribe-vault">NeuroScribe Studio ↗</a></h4>
-      <p>Semantic Markdown knowledge vault and research workspace with SQLite FTS5 indexing and interactive graph exploration.</p>
-      <p><code>Node.js</code> <code>SQLite FTS5</code> <code>Semantic Search</code></p>
+      <h4>01 · <a href="https://github.com/pushpikaodisha/chronoledger-vault">ChronoLedger Vault ↗</a></h4>
+      <p>Tamper-evident document notary and cryptographic audit system implementing RFC 6962 Merkle Tree verification proofs.</p>
+      <p><code>Node.js</code> <code>RFC 6962 Merkle</code> <code>0 NPM Deps</code></p>
       <details>
-        <summary><sub><b>Architecture &amp; Details</b> · Updated 2026-11-23</sub></summary>
+        <summary><sub><b>Architecture &amp; Details</b> · Updated 2026-11-26</sub></summary>
         <br />
         <ul>
-          <li><b>Core:</b> Node.js 22 runtime with zero external search bloat</li>
-          <li><b>Indexing:</b> SQLite FTS5 full-text semantic query engine</li>
-          <li><b>Visualization:</b> Force-directed document link graph</li>
+          <li><b>Cryptography:</b> RFC 6962 Merkle Tree inclusion &amp; consistency proofs</li>
+          <li><b>Footprint:</b> Zero external NPM dependencies on Node.js 22</li>
+          <li><b>Use Case:</b> Verifiable audit trails for critical records</li>
         </ul>
       </details>
     </td>
     <td width="50%" valign="top">
-      <h4>02 · <a href="https://github.com/pushpikaodisha/polyglot-forge">PolyglotForge ↗</a></h4>
-      <p>Zero-dependency API contract simulator and chaos engineering workbench built on pure Node.js ESM for resilience testing.</p>
-      <p><code>Node.js ESM</code> <code>API Simulation</code> <code>0 NPM Deps</code></p>
+      <h4>02 · <a href="https://github.com/pushpikaodisha/chronoforge-4d">ChronoForge 4D ↗</a></h4>
+      <p>Browser-based 3D/4D geometric projection engine with responsive touch and mobile sensor controls.</p>
+      <p><code>HTML5 Canvas</code> <code>JavaScript</code> <code>Geometry</code></p>
       <details>
-        <summary><sub><b>Architecture &amp; Details</b> · Updated 2026-11-23</sub></summary>
+        <summary><sub><b>Architecture &amp; Details</b> · Updated 2026-11-26</sub></summary>
         <br />
         <ul>
-          <li><b>Runtime:</b> Pure Node.js 22 ESM with 0 NPM dependencies</li>
-          <li><b>Resilience:</b> Deterministic fault injection &amp; latency simulation</li>
-          <li><b>Purpose:</b> Validates API contract behavior under failure modes</li>
+          <li><b>Rendering:</b> Smooth HTML5 Canvas 2D/3D real-time projection</li>
+          <li><b>Input:</b> Desktop controls &amp; mobile gyroscope integration</li>
         </ul>
       </details>
     </td>
   </tr>
   <tr>
     <td width="50%" valign="top">
-      <h4>03 · <a href="https://github.com/pushpikaodisha/omnimesh-telemetry">OmniMesh Telemetry ↗</a></h4>
-      <p>Distributed edge telemetry and automation web orchestrator streaming live device events via Server-Sent Events (SSE).</p>
-      <p><code>PHP 8.3 MVC</code> <code>SSE Streaming</code> <code>SQLite PDO</code></p>
+      <h4>03 · <a href="https://github.com/pushpikaodisha/bioswarm-genesis">BioSwarm Genesis ↗</a></h4>
+      <p>Real-time 60 FPS browser simulation driven by lightweight neural-perceptron agents in Vanilla ES6+.</p>
+      <p><code>JavaScript ES6+</code> <code>HTML5 Canvas</code> <code>AI Agents</code></p>
       <details>
-        <summary><sub><b>Architecture &amp; Details</b> · Updated 2026-11-23</sub></summary>
+        <summary><sub><b>Architecture &amp; Details</b> · Updated 2026-11-26</sub></summary>
         <br />
         <ul>
-          <li><b>Streaming:</b> Real-time SSE push pipeline to web dashboards</li>
-          <li><b>Automation:</b> Rule-driven edge event orchestration in PHP 8.3</li>
-          <li><b>Storage:</b> Lightweight SQLite PDO event persistence</li>
+          <li><b>Simulation:</b> 60 FPS HTML5 Canvas agent ecosystem loop</li>
+          <li><b>AI Logic:</b> Lightweight neural-perceptron decision engine</li>
         </ul>
       </details>
     </td>
@@ -102,7 +100,7 @@ I'm **Pushpika Odisha**, a Software Engineer from **Sri Lanka** specializing in 
       <p>Interactive browser audio synthesizer and spatial sound visualization app powered by the Web Audio API.</p>
       <p><code>Web Audio API</code> <code>HTML5</code> <code>JavaScript</code></p>
       <details>
-        <summary><sub><b>Architecture &amp; Details</b> · Updated 2026-11-23</sub></summary>
+        <summary><sub><b>Architecture &amp; Details</b> · Updated 2026-11-26</sub></summary>
         <br />
         <ul>
           <li><b>Audio Engine:</b> Real-time browser synthesis using Web Audio API</li>
@@ -113,29 +111,30 @@ I'm **Pushpika Odisha**, a Software Engineer from **Sri Lanka** specializing in 
   </tr>
   <tr>
     <td width="50%" valign="top">
-      <h4>05 · <a href="https://github.com/pushpikaodisha/chronoforge-4d">ChronoForge 4D ↗</a></h4>
-      <p>Browser-based 3D/4D geometric projection engine with responsive touch and mobile sensor controls.</p>
-      <p><code>HTML5 Canvas</code> <code>JavaScript</code> <code>Geometry</code></p>
-      <details>
-        <summary><sub><b>Architecture &amp; Details</b> · Updated 2026-11-23</sub></summary>
-        <br />
-        <ul>
-          <li><b>Rendering:</b> Smooth HTML5 Canvas 2D/3D real-time projection</li>
-          <li><b>Input:</b> Desktop controls &amp; mobile gyroscope integration</li>
-        </ul>
-      </details>
-    </td>
-    <td width="50%" valign="top">
-      <h4>06 · <a href="https://github.com/pushpikaodisha/apexguild-workflow">ApexGuild Workflow ↗</a></h4>
+      <h4>05 · <a href="https://github.com/pushpikaodisha/apexguild-workflow">ApexGuild Workflow ↗</a></h4>
       <p>Enterprise multi-tier approval and state-machine web platform enforcing strict transition invariants and granular RBAC.</p>
       <p><code>PHP 8.3 MVC</code> <code>SQLite PDO</code> <code>RBAC</code></p>
       <details>
-        <summary><sub><b>Architecture &amp; Details</b> · Updated 2026-11-23</sub></summary>
+        <summary><sub><b>Architecture &amp; Details</b> · Updated 2026-11-26</sub></summary>
         <br />
         <ul>
           <li><b>Backend:</b> PHP 8.3 strict OOP/MVC service architecture</li>
           <li><b>Security:</b> Role-based access control &amp; guarded state transitions</li>
           <li><b>Persistence:</b> Parameterized SQLite PDO storage layer</li>
+        </ul>
+      </details>
+    </td>
+    <td width="50%" valign="top">
+      <h4>06 · <a href="https://github.com/pushpikaodisha/typescript-notes">Typescript Notes ↗</a></h4>
+      <p>Type-safe modular TypeScript notes workspace with JSON/Markdown export, JSON import, and theme toggle.</p>
+      <p><code>TypeScript</code> <code>GitHub</code></p>
+      <details>
+        <summary><sub><b>Architecture &amp; Details</b> · Updated 2026-11-26</sub></summary>
+        <br />
+        <ul>
+          <li><b>Repository:</b> <code>typescript-notes</code></li>
+          <li><b>Primary Language:</b> TypeScript</li>
+          <li><b>Last Updated:</b> 2026-11-26</li>
         </ul>
       </details>
     </td>
@@ -170,7 +169,7 @@ I'm **Pushpika Odisha**, a Software Engineer from **Sri Lanka** specializing in 
   <table>
     <tr>
       <td><b>Languages</b></td>
-      <td><code>JavaScript (ES6+)</code> <code>PHP 8.3</code> <code>Python</code> <code>HTML5</code> <code>CSS3</code> <code>SQL</code></td>
+      <td><code>JavaScript (ES6+)</code> <code>PHP 8.3</code> <code>Python</code> <code>HTML5</code> <code>CSS3</code> <code>SQL</code> <code>TypeScript</code></td>
     </tr>
     <tr>
       <td><b>Web &amp; Frontend</b></td>
