@@ -1,0 +1,50 @@
+{
+  "languages": [
+    "JavaScript (ES6+)",
+    "PHP 8.3",
+    "Python",
+    "HTML5",
+    "CSS3",
+    "SQL"
+  ],
+  "frontend": [
+    "Responsive UI",
+    "SSE Streaming",
+    "HTML5 Canvas",
+    "Web Audio API",
+    "Browser Web APIs",
+    "Adaptive Theming"
+  ],
+  "backend": [
+    "Node.js (ESM)",
+    "PHP OOP / MVC",
+    "RESTful APIs",
+    "State Machines",
+    "RBAC Security",
+    "Modular Design"
+  ],
+  "ai": [
+    "LLM APIs",
+    "Prompt Eng.",
+    "SQLite FTS5",
+    "Knowledge Graphs",
+    "Workflow Agents",
+    "Semantic Search"
+  ],
+  "databases": [
+    "SQLite PDO",
+    "Data Modeling",
+    "Query Tuning",
+    "RFC 6962 Merkle",
+    "Audit Logging",
+    "Data Integrity"
+  ],
+  "devops": [
+    "GitHub Actions",
+    "Chaos Testing",
+    "Zero-Dep Design",
+    "Automated CI",
+    "API Contracts",
+    "Linux & CLI"
+  ]
+}

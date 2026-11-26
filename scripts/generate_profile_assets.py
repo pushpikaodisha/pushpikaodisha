@@ -17,6 +17,7 @@ EMAIL = "pushpikaodisha.contact@gmail.com"
 ROOT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 ASSETS_DIR = os.path.join(ROOT_DIR, "assets")
 README_PATH = os.path.join(ROOT_DIR, "README.md")
+SKILLS_PATH = os.path.join(ROOT_DIR, "skills.json")
 
 SANS_FONT = "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif"
 MONO_FONT = "ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
@@ -701,9 +702,39 @@ def render_projects(t: dict, projects: list[dict], updated: str) -> str:
 """
 
 
-def render_stack(t: dict) -> str:
-    """Section 4: 4-Column Vector Tech & AI Stack Matrix (960x235)."""
-    w, h = 960, 235
+def load_skills(detected_langs: list[str]) -> dict[str, list[str]]:
+    """Load skills from skills.json and auto-merge newly detected GitHub languages."""
+    default_skills = {
+        "languages": ["JavaScript (ES6+)", "PHP 8.3", "Python", "HTML5", "CSS3", "SQL"],
+        "frontend": ["Responsive UI", "Server-Sent Events", "HTML5 Canvas", "Web Audio API", "Browser Web APIs", "Adaptive Theming"],
+        "backend": ["Node.js (ESM)", "PHP OOP / MVC", "RESTful APIs", "State Machines", "RBAC Security", "Modular Architecture"],
+        "ai": ["LLM API Integration", "Prompt Engineering", "SQLite FTS5 Search", "Knowledge Graphs", "Workflow Agents", "Semantic Indexing"],
+        "databases": ["SQLite PDO", "Relational Modeling", "Query Optimization", "RFC 6962 Merkle", "Audit Logging", "Data Integrity"],
+        "devops": ["Git & GitHub Actions", "Chaos / API Testing", "Zero-Dep Design", "Automated CI Sync", "Contract Validation", "Linux / CLI Tooling"],
+    }
+    skills = default_skills
+    if os.path.exists(SKILLS_PATH):
+        try:
+            with open(SKILLS_PATH, "r", encoding="utf-8") as f:
+                loaded = json.load(f)
+            if isinstance(loaded, dict):
+                for key in default_skills:
+                    if isinstance(loaded.get(key), list) and loaded[key]:
+                        skills[key] = [str(item) for item in loaded[key]]
+        except (OSError, json.JSONDecodeError):
+            pass
+
+    existing_lower = " ".join(skills["languages"]).lower()
+    for lang in detected_langs:
+        if lang.lower() not in existing_lower:
+            skills["languages"].append(lang)
+            existing_lower += f" {lang.lower()}"
+    return skills
+
+
+def render_stack(t: dict, skills: dict[str, list[str]]) -> str:
+    """Section 4: 6-Category Vector Tech & AI Capability Board (960x346)."""
+    w, h = 960, 346
     c_bg1 = t["bg_1"]
     c_bg2 = t["bg_2"]
     c_card = t["card"]
@@ -716,34 +747,51 @@ def render_stack(t: dict) -> str:
     c_accent_2 = t["accent_2"]
     c_emerald = t["emerald"]
     c_amber = t["amber"]
+    c_violet = t["violet"]
 
-    columns = [
-        ("WEB &amp; FRONTEND", c_accent, ["JavaScript (ES6+)", "HTML5 &amp; CSS3", "Responsive UI", "Server-Sent Events", "Browser Web APIs"]),
-        ("BACKEND &amp; SOFTWARE", c_accent_2, ["Node.js (ESM)", "PHP 8.3 OOP / MVC", "RESTful APIs", "State Machines", "RBAC Auth"]),
-        ("AI &amp; KNOWLEDGE", c_emerald, ["LLM API Integration", "Prompt Engineering", "SQLite FTS5 Search", "Knowledge Graphs", "Workflow Agents"]),
-        ("DATA &amp; DEVOPS", c_amber, ["SQLite PDO &amp; SQL", "RFC 6962 Merkle", "Chaos / API Testing", "GitHub Actions CI", "Git &amp; Versioning"]),
+    categories = [
+        ("01 · LANGUAGES", c_accent, skills.get("languages", []), True),
+        ("02 · WEB &amp; FRONTEND", c_accent_2, skills.get("frontend", []), False),
+        ("03 · BACKEND &amp; APIS", c_emerald, skills.get("backend", []), False),
+        ("04 · AI &amp; KNOWLEDGE", c_violet, skills.get("ai", []), False),
+        ("05 · DATA &amp; INTEGRITY", c_amber, skills.get("databases", []), False),
+        ("06 · DEVOPS &amp; TESTING", c_accent, skills.get("devops", []), False),
     ]
 
-    col_svg = []
-    for idx, (heading, col, skills) in enumerate(columns):
-        x = 28 + idx * 232
+    cards = []
+    for idx, (heading, col, items, use_lang_colors) in enumerate(categories):
+        col_i = idx % 3
+        row_i = idx // 3
+        x = 28 + col_i * 308
+        y = 52 + row_i * 140
+
         pills = []
-        for s_idx, skill in enumerate(skills):
-            py = 88 + s_idx * 23
+        for s_idx, raw_skill in enumerate(items[:6]):
+            sc = s_idx % 2
+            sr = s_idx // 2
+            px = x + 14 + sc * 133
+            py = y + 38 + sr * 26
+            dot_col = col
+            if use_lang_colors:
+                for l_name, l_col in LANG_COLORS.items():
+                    if l_name.lower() in raw_skill.lower():
+                        dot_col = l_col
+                        break
+            label = html.escape(truncate(raw_skill, 17))
             pills.append(
-                f'<rect x="{x + 14}" y="{py}" width="182" height="19" rx="4.5" fill="{c_card_alt}" stroke="{c_border}" stroke-width="0.9"/>'
-                f'<circle cx="{x + 24}" cy="{py + 9.5}" r="2.2" fill="{col}"/>'
-                f'<text x="{x + 33}" y="{py + 13}" font-family="{MONO_FONT}" font-size="10" fill="{c_sub}">{skill}</text>'
+                f'<rect x="{px}" y="{py}" width="127" height="20" rx="4.5" fill="{c_card_alt}" stroke="{c_border}" stroke-width="0.9"/>'
+                f'<circle cx="{px + 9}" cy="{py + 10}" r="2.5" fill="{dot_col}"/>'
+                f'<text x="{px + 17}" y="{py + 13.5}" font-family="{MONO_FONT}" font-size="9.2" fill="{c_sub}">{label}</text>'
             )
 
-        col_svg.append(
-            f'<rect x="{x}" y="52" width="210" height="162" rx="11" fill="{c_card}" stroke="{c_border_hi}" stroke-width="1.2"/>'
-            f'<rect x="{x}" y="52" width="210" height="3" rx="1.5" fill="{col}"/>'
-            f'<text x="{x + 14}" y="76" font-family="{MONO_FONT}" font-size="10" font-weight="700" letter-spacing="0.7" fill="{col}">{heading}</text>'
+        cards.append(
+            f'<rect x="{x}" y="{y}" width="288" height="126" rx="11" fill="{c_card}" stroke="{c_border_hi}" stroke-width="1.2"/>'
+            f'<rect x="{x}" y="{y}" width="288" height="3" rx="1.5" fill="{col}"/>'
+            f'<text x="{x + 14}" y="{y + 24}" font-family="{MONO_FONT}" font-size="10" font-weight="700" letter-spacing="0.7" fill="{col}">{heading}</text>'
             f'{"".join(pills)}'
         )
 
-    return f"""<svg xmlns="http://www.w3.org/2000/svg" width="{w}" height="{h}" viewBox="0 0 {w} {h}" role="img" aria-label="Technology and AI Engineering Stack Matrix">
+    return f"""<svg xmlns="http://www.w3.org/2000/svg" width="{w}" height="{h}" viewBox="0 0 {w} {h}" role="img" aria-label="Technologies, Languages and AI Capability Matrix">
   <defs>
     <linearGradient id="stackBg" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="{c_bg1}"/>
@@ -751,8 +799,9 @@ def render_stack(t: dict) -> str:
     </linearGradient>
   </defs>
   <rect width="{w}" height="{h}" rx="16" fill="url(#stackBg)" stroke="{c_border}" stroke-width="1.5"/>
-  <text x="28" y="34" font-family="{MONO_FONT}" font-size="10.5" font-weight="600" letter-spacing="1.1" fill="{c_muted}">TECHNOLOGY &amp; AI CAPABILITY MATRIX</text>
-  {"".join(col_svg)}
+  <text x="28" y="34" font-family="{MONO_FONT}" font-size="10.5" font-weight="600" letter-spacing="1.1" fill="{c_muted}">LANGUAGES, TECHNOLOGIES &amp; AI CAPABILITY BOARD</text>
+  <text x="932" y="34" text-anchor="end" font-family="{MONO_FONT}" font-size="10" fill="{c_muted}">CONFIGURED + AUTO-DETECTED</text>
+  {"".join(cards)}
 </svg>
 """
 
@@ -951,36 +1000,69 @@ def build_projects_table_html(projects: list[dict]) -> str:
     return "<table>\n" + "\n".join(rows) + "\n</table>"
 
 
-def sync_readme_projects(projects: list[dict]) -> None:
-    """Update the <!-- PROJECTS:START --> ... <!-- PROJECTS:END --> block in README.md."""
+def build_skills_details_html(skills: dict[str, list[str]]) -> str:
+    """Build expandable full technical inventory table synced into README.md."""
+    labels = [
+        ("languages", "Languages"),
+        ("frontend", "Web &amp; Frontend"),
+        ("backend", "Backend &amp; Software"),
+        ("ai", "AI &amp; Knowledge"),
+        ("databases", "Data &amp; Integrity"),
+        ("devops", "DevOps &amp; Testing"),
+    ]
+    rows = []
+    for key, label in labels:
+        items = skills.get(key, [])
+        if not items:
+            continue
+        badges = " ".join(f"<code>{html.escape(item)}</code>" for item in items)
+        rows.append(f"    <tr>\n      <td><b>{label}</b></td>\n      <td>{badges}</td>\n    </tr>")
+    return (
+        "<details>\n"
+        "  <summary><b>Complete Languages &amp; Technology Inventory</b> (Editable via <code>skills.json</code> + Auto-Detected)</summary>\n"
+        "  <br />\n"
+        "  <table>\n"
+        + "\n".join(rows)
+        + "\n  </table>\n</details>"
+    )
+
+
+def sync_readme_blocks(projects: list[dict], skills: dict[str, list[str]]) -> None:
+    """Update dynamic <!-- PROJECTS --> and <!-- SKILLS --> blocks in README.md."""
     if not os.path.exists(README_PATH):
         return
     with open(README_PATH, "r", encoding="utf-8") as f:
         original = f.read()
 
-    pattern = re.compile(r"<!-- PROJECTS:START -->.*?<!-- PROJECTS:END -->", re.DOTALL)
-    if not pattern.search(original):
-        return
+    updated = original
+    proj_pat = re.compile(r"<!-- PROJECTS:START -->.*?<!-- PROJECTS:END -->", re.DOTALL)
+    if proj_pat.search(updated):
+        table_html = build_projects_table_html(projects)
+        updated = proj_pat.sub(f"<!-- PROJECTS:START -->\n{table_html}\n<!-- PROJECTS:END -->", updated)
 
-    table_html = build_projects_table_html(projects)
-    replacement = f"<!-- PROJECTS:START -->\n{table_html}\n<!-- PROJECTS:END -->"
-    updated = pattern.sub(replacement, original)
+    skill_pat = re.compile(r"<!-- SKILLS:START -->.*?<!-- SKILLS:END -->", re.DOTALL)
+    if skill_pat.search(updated):
+        skills_html = build_skills_details_html(skills)
+        updated = skill_pat.sub(f"<!-- SKILLS:START -->\n{skills_html}\n<!-- SKILLS:END -->", updated)
+
     if updated != original:
         with open(README_PATH, "w", encoding="utf-8", newline="\n") as f:
             f.write(updated)
-        print("Updated README.md dynamic projects block")
+        print("Updated README.md dynamic sections")
 
 
 def main() -> None:
     os.makedirs(ASSETS_DIR, exist_ok=True)
     metrics = fetch_metrics()
+    detected_langs = [lang for lang, _ in metrics["top_langs"]]
+    skills = load_skills(detected_langs)
 
     outputs = {}
     for mode, theme in THEMES.items():
         outputs[f"hero-{mode}.svg"] = render_hero(theme)
         outputs[f"lifecycle-{mode}.svg"] = render_lifecycle(theme)
         outputs[f"projects-{mode}.svg"] = render_projects(theme, metrics["featured_projects"], metrics["updated"])
-        outputs[f"stack-{mode}.svg"] = render_stack(theme)
+        outputs[f"stack-{mode}.svg"] = render_stack(theme, skills)
         outputs[f"dashboard-{mode}.svg"] = render_dashboard(theme, metrics)
         outputs[f"footer-{mode}.svg"] = render_footer(theme)
 
@@ -990,7 +1072,7 @@ def main() -> None:
             f.write(content)
         print(f"Generated {filename}")
 
-    sync_readme_projects(metrics["featured_projects"])
+    sync_readme_blocks(metrics["featured_projects"], skills)
 
 
 if __name__ == "__main__":

@@ -163,6 +163,39 @@ I'm **Pushpika Odisha**, a Software Engineer from **Sri Lanka** specializing in 
   </picture>
 </p>
 
+<!-- SKILLS:START -->
+<details>
+  <summary><b>Complete Languages &amp; Technology Inventory</b> (Editable via <code>skills.json</code> + Auto-Detected)</summary>
+  <br />
+  <table>
+    <tr>
+      <td><b>Languages</b></td>
+      <td><code>JavaScript (ES6+)</code> <code>PHP 8.3</code> <code>Python</code> <code>HTML5</code> <code>CSS3</code> <code>SQL</code></td>
+    </tr>
+    <tr>
+      <td><b>Web &amp; Frontend</b></td>
+      <td><code>Responsive UI</code> <code>SSE Streaming</code> <code>HTML5 Canvas</code> <code>Web Audio API</code> <code>Browser Web APIs</code> <code>Adaptive Theming</code></td>
+    </tr>
+    <tr>
+      <td><b>Backend &amp; Software</b></td>
+      <td><code>Node.js (ESM)</code> <code>PHP OOP / MVC</code> <code>RESTful APIs</code> <code>State Machines</code> <code>RBAC Security</code> <code>Modular Design</code></td>
+    </tr>
+    <tr>
+      <td><b>AI &amp; Knowledge</b></td>
+      <td><code>LLM APIs</code> <code>Prompt Eng.</code> <code>SQLite FTS5</code> <code>Knowledge Graphs</code> <code>Workflow Agents</code> <code>Semantic Search</code></td>
+    </tr>
+    <tr>
+      <td><b>Data &amp; Integrity</b></td>
+      <td><code>SQLite PDO</code> <code>Data Modeling</code> <code>Query Tuning</code> <code>RFC 6962 Merkle</code> <code>Audit Logging</code> <code>Data Integrity</code></td>
+    </tr>
+    <tr>
+      <td><b>DevOps &amp; Testing</b></td>
+      <td><code>GitHub Actions</code> <code>Chaos Testing</code> <code>Zero-Dep Design</code> <code>Automated CI</code> <code>API Contracts</code> <code>Linux &amp; CLI</code></td>
+    </tr>
+  </table>
+</details>
+<!-- SKILLS:END -->
+
 ---
 
 ### GitHub Observatory

@@ -11,6 +11,7 @@ on:
       - main
     paths:
       - "scripts/generate_profile_assets.py"
+      - "skills.json"
 
 permissions:
   contents: write
